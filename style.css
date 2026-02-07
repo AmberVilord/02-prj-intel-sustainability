@@ -1,3 +1,13 @@
+/* Make years blue in dark mode */
+body.dark-mode .timeline-card h2 {
+  color: #4ecbff !important;
+}
+/* Force all text to white in dark mode */
+body.dark-mode,
+body.dark-mode .timeline-card,
+body.dark-mode .timeline-card * {
+  color: #fff !important;
+}
 /* Dark mode: timeline cards black bg, white text */
 body.dark-mode .timeline-card {
   background: #000;
