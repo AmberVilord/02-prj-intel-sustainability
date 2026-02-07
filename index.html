@@ -7,12 +7,35 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Transparent toggle button for light mode -->
+  <button id="light-toggle" style="position:fixed;top:16px;right:16px;z-index:1001;padding:10px 18px;border-radius:8px;border:2px solid #002a4d;background:rgba(255,255,255,0.3);color:#fff;font-size:24px;cursor:pointer;backdrop-filter:blur(2px);">&#9728;</button>
+  <!-- Simple script to toggle light mode -->
+  <script>
+    // Get the toggle button
+    const lightToggle = document.getElementById('light-toggle');
+    // Toggle light mode class on body
+    lightToggle.addEventListener('click', function() {
+      document.body.classList.toggle('light-mode');
+      // Change button text for clarity
+      if(document.body.classList.contains('light-mode')) {
+        lightToggle.innerHTML = '&#9790;'; // Moon icon for dark mode
+        lightToggle.style.color = '#002a4d';
+      } else {
+        lightToggle.innerHTML = '&#9728;'; // Sun icon for light mode
+        lightToggle.style.color = '#fff';
+      }
+    });
+    // Beginner comments:
+    // 1. The button is transparent and toggles light mode.
+    // 2. When clicked, it adds/removes the 'light-mode' class on the body.
+    // 3. The CSS for .light-mode changes the background and text color.
+  </script>
 
   <!-- Removed moon icon button -->
 
   <!-- Header / Hero Section as Thought Bubble Banner -->
   <header class="banner" style="margin-left:24px;text-align:left;">
-    <div>
+    <div class="timeline-card">
       <img src="img/intel-header-logo.svg" alt="Intel Logo" />
       <h1>Sustainability Through the Ages</h1>
       <p>
@@ -28,7 +51,7 @@
   <section>
 
     <!-- Card 1: 1968 -->
-    <div>
+    <div class="timeline-card">
       <h2>1968</h2>
       <h3>Intel Founded</h3>
       <!-- Add image -->
@@ -40,7 +63,7 @@
     </div>
 
     <!-- Card 2: 1971 -->
-    <div>
+    <div class="timeline-card">
       <h2>1971</h2>
       <h3>First Microprocessor</h3>
       <!-- Add image -->
@@ -52,7 +75,7 @@
     </div>
 
     <!-- Card 3: 1978 -->
-    <div>
+    <div class="timeline-card">
       <h2>1978</h2>
       <h3>8086 Processor</h3>
       <!-- Add image -->
@@ -63,7 +86,7 @@
     </div>
 
     <!-- Card 4: 1985 -->
-    <div>
+    <div class="timeline-card">
       <h2>1985</h2>
       <h3>386 Processor</h3>
       <!-- Add image -->
@@ -75,7 +98,7 @@
     </div>
 
     <!-- Card 5: 2006 -->
-    <div>
+    <div class="timeline-card">
       <h2>2006</h2>
       <h3>Peak GHG Emissions</h3>
       <!-- Add image -->
@@ -88,7 +111,7 @@
     </div>
 
     <!-- Card 6: 2020 -->
-    <div>
+    <div class="timeline-card">
       <h2>2020</h2>
       <h3>RISE Strategy</h3>
       <!-- Add image -->
@@ -100,7 +123,7 @@
     </div>
 
     <!-- Card 7: 2022 -->
-    <div>
+    <div class="timeline-card">
       <h2>2022</h2>
       <h3>Net-Zero By 2040</h3>
       <!-- Add image -->
@@ -112,7 +135,7 @@
     </div>
 
     <!-- Card 8: 2023 -->
-    <div>
+    <div class="timeline-card">
       <h2>2023</h2>
       <h3>Renewable Electricity</h3>
       <!-- Add image -->
@@ -124,7 +147,7 @@
     </div>
 
     <!-- Card 9: 2024 -->
-    <div>
+    <div class="timeline-card">
       <h2>2024</h2>
       <h3>Sustainability Summit</h3>
       <!-- Add image -->

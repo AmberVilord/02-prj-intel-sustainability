@@ -1,3 +1,18 @@
+/* Dynamic card hover effect for timeline cards */
+.timeline-card {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.timeline-card:hover {
+  transform: scale(1.08);
+  box-shadow: 0 12px 32px 0 #4ecbff, 0 8px 24px rgba(0,0,0,0.18);
+  z-index: 10;
+}
+/* Light mode styles */
+.light-mode {
+  /* Light mode background: simple white with blue text */
+  background-color: #f5faff;
+  color: #002a4d;
+}
 body {
   margin: 0;
   padding: 0;
