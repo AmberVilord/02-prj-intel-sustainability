@@ -5,31 +5,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Intel: Sustainability Through the Ages</title>
   <link rel="stylesheet" href="style.css" />
+    <!-- Add a script for dark mode toggle -->
+    <script>
+      // This script toggles the dark mode class on the body
+      function toggleDarkMode() {
+        document.body.classList.toggle('dark-mode');
+        // Save preference
+        if(document.body.classList.contains('dark-mode')) {
+          localStorage.setItem('theme', 'dark');
+        } else {
+          localStorage.setItem('theme', 'light');
+        }
+      }
+      // On page load, set theme from localStorage
+      window.onload = function() {
+        if(localStorage.getItem('theme') === 'dark') {
+          document.body.classList.add('dark-mode');
+        }
+      }
+    </script>
 </head>
 <body>
-  <!-- Transparent toggle button for light mode -->
-  <button id="light-toggle" style="position:fixed;top:16px;right:16px;z-index:1001;padding:10px 18px;border-radius:8px;border:2px solid #002a4d;background:rgba(255,255,255,0.3);color:#fff;font-size:24px;cursor:pointer;backdrop-filter:blur(2px);">&#9728;</button>
-  <!-- Simple script to toggle light mode -->
-  <script>
-    // Get the toggle button
-    const lightToggle = document.getElementById('light-toggle');
-    // Toggle light mode class on body
-    lightToggle.addEventListener('click', function() {
-      document.body.classList.toggle('light-mode');
-      // Change button text for clarity
-      if(document.body.classList.contains('light-mode')) {
-        lightToggle.innerHTML = '&#9790;'; // Moon icon for dark mode
-        lightToggle.style.color = '#002a4d';
-      } else {
-        lightToggle.innerHTML = '&#9728;'; // Sun icon for light mode
-        lightToggle.style.color = '#fff';
+    <!-- Translucent icon button for theme toggle -->
+    <button onclick="toggleDarkMode()" class="toggle-btn" aria-label="Toggle dark mode">
+      <span id="theme-icon" aria-hidden="true">🌙</span>
+    </button>
+    <script>
+      // This script toggles the dark mode class on the body and updates the icon
+      function toggleDarkMode() {
+        document.body.classList.toggle('dark-mode');
+        // Save preference
+        if(document.body.classList.contains('dark-mode')) {
+          localStorage.setItem('theme', 'dark');
+        } else {
+          localStorage.setItem('theme', 'light');
+        }
+        updateThemeIcon();
       }
-    });
-    // Beginner comments:
-    // 1. The button is transparent and toggles light mode.
-    // 2. When clicked, it adds/removes the 'light-mode' class on the body.
-    // 3. The CSS for .light-mode changes the background and text color.
-  </script>
+      // Change icon based on theme
+      function updateThemeIcon() {
+        var icon = document.getElementById('theme-icon');
+        if(document.body.classList.contains('dark-mode')) {
+          icon.textContent = '☀️'; // Sun for light mode
+        } else {
+          icon.textContent = '🌙'; // Moon for dark mode
+        }
+      }
+      // On page load, set theme from localStorage and update icon
+      window.onload = function() {
+        if(localStorage.getItem('theme') === 'dark') {
+          document.body.classList.add('dark-mode');
+        }
+        updateThemeIcon();
+      }
+    </script>
 
   <!-- Removed moon icon button -->
 
