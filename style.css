@@ -1,390 +1,494 @@
-/* Make years blue in dark mode */
-body.dark-mode .timeline-card h2 {
-  color: #4ecbff !important;
-}
-/* Force all text to white in dark mode */
-body.dark-mode,
-body.dark-mode .timeline-card,
-body.dark-mode .timeline-card * {
-  color: #fff !important;
-}
-/* Dark mode: timeline cards black bg, white text */
-body.dark-mode .timeline-card {
-  background: #000;
-  color: #fff;
-}
-/* Light and dark mode color variables */
+/* ==========================================
+   CSS Variables for Light and Dark Mode
+   ========================================== */
+
+/* Light Mode Variables */
 :root {
-  --bg-color: #f5f5f5;
-  --text-color: #222;
-  --card-bg: #fff;
-  --card-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --text-primary: #000000;
+  --text-secondary: #666666;
+  --card-bg: #ffffff;
+  --card-border: #e0e0e0;
+  --overlay-bg: rgba(0, 113, 197, 0.9);
+  --overlay-text: #ffffff;
+  --glow-color: rgba(0, 113, 197, 0.3);
+  --nav-bg: #ffffff;
+  --nav-border: #e0e0e0;
+}
+
+/* Dark Mode Variables */
+html.dark-mode {
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2a2a2a;
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+  --card-bg: #003d7a;
+  --card-border: #0071c5;
+  --overlay-bg: rgba(0, 113, 197, 0.95);
+  --overlay-text: #ffffff;
+  --glow-color: rgba(0, 113, 197, 0.5);
+  --nav-bg: #0a0e1a;
+  --nav-border: #0071c5;
+}
+
+/* ==========================================
+   General Styles
+   ========================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  background: var(--bg-color);
-  color: var(--text-color);
-  transition: background 0.3s, color 0.3s;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  line-height: 1.6;
 }
 
-/* Dark mode overrides */
-body.dark-mode {
-  --bg-color: #181a1b;
-  --text-color: #f5f5f5;
-  --card-bg: #23272a;
-  --card-shadow: 0 2px 8px rgba(0,0,0,0.4);
+/* ==========================================
+   Navigation Bar
+   ========================================== */
+
+.navbar {
+  background-color: var(--nav-bg);
+  border-bottom: 2px solid var(--nav-border);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 
-/* Toggle button styles */
-/* Translucent icon button for theme toggle */
-.toggle-btn {
-  position: fixed;
-  top: 1em;
-  right: 1em;
-  z-index: 100;
-  background: rgba(255,255,255,0.4);
-  color: #222;
-  border: none;
-  border-radius: 50%;
-  width: 44px;
-  height: 44px;
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+/* Intel Logo */
+.logo {
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 1.5em;
-  cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  backdrop-filter: blur(4px);
-  transition: background 0.3s, color 0.3s;
 }
-.toggle-btn:hover {
-  background: rgba(0,0,0,0.15);
+
+.intel-logo {
+  height: 50px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.intel-logo:hover {
+  transform: scale(1.05);
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-links a:hover {
   color: #0071c5;
 }
 
-body.dark-mode .toggle-btn {
-  background: rgba(30,30,30,0.4);
-  color: #f5f5f5;
-}
-
-/* Example usage for cards or timeline (if present) */
-.timeline-item {
-  background: var(--card-bg);
-  box-shadow: var(--card-shadow);
-  color: var(--text-color);
-}
-/* Dynamic card hover effect for timeline cards */
-.timeline-card {
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.timeline-card:hover {
-  transform: scale(1.08);
-  box-shadow: 0 12px 32px 0 #4ecbff, 0 8px 24px rgba(0,0,0,0.18);
-  z-index: 10;
-}
-/* Light mode styles */
-.light-mode {
-  /* Light mode background: simple white with blue text */
-  background-color: #f5faff;
-  color: #002a4d;
-}
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  /* Intel processor wallpaper background */
-  background-image: url('https://www.highreshdwallpapers.com/wp-content/uploads/2012/08/Intel-Processor-Wallpaper.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
-  background-color: #f5f5f5;
-  color: #333;
-  transition: background 0.3s, color 0.3s;
-}
-
-body.dark-mode {
-  background-color: #1a1a1a;
-  color: #f0f0f0;
-}
-
-/* Comic book style thought bubble banner */
- .banner {
-  background-color: #002a4d;
-  color: #fff;
-  border-radius: 36px;
-  padding: 22px 18px 26px 18px;
-  margin: 24px auto 10px auto;
-  max-width: 480px;
-  text-align: center;
-  position: relative;
-  font-weight: bold;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.10), 0 0 18px 4px #7ecbff;
-  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
-}
-
-/* Comic book bubble tails */
-.banner::after, .banner::before, .banner .bubble-tail {
-  content: "";
+.nav-links a::after {
+  content: '';
   position: absolute;
-  background: #004a86;
-  border-radius: 50%;
-  opacity: 0.95;
-  box-shadow: 0 2px 10px 0 #7ecbff;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #0071c5;
+  transition: width 0.3s ease;
 }
 
-.banner::after {
-  width: 28px;
-  height: 28px;
-  left: 60%;
-  bottom: -20px;
-  z-index: 1;
+.nav-links a:hover::after {
+  width: 100%;
 }
 
-.banner::before {
-  width: 18px;
-  height: 18px;
-  left: 66%;
-  bottom: -34px;
-  z-index: 0;
-}
-
-.banner .bubble-tail {
-  width: 12px;
-  height: 12px;
-  left: 70%;
-  bottom: -42px;
-  z-index: 0;
-  position: absolute;
-}
-
-body.dark-mode .banner,
-body.dark-mode .banner::after,
-body.dark-mode .banner::before,
-body.dark-mode .banner .bubble-tail {
-  background-color: #00325a;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.32), 0 0 18px 4px #3a6a8c;
-}
-
+/* Theme Toggle Button */
 .theme-toggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 1000;
-  background: #fff;
-  color: #004a86;
-  border: 2px solid #004a86;
+  background-color: transparent;
+  border: 2px solid #0071c5;
   border-radius: 50%;
-  width: 44px;
-  height: 44px;
-  font-size: 22px;
+  width: 45px;
+  height: 45px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.3s, color 0.3s;
-}
-body.dark-mode .theme-toggle {
-  background: #222;
-  color: #fff;
-  border-color: #fff;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  color: var(--text-primary);
 }
 
-header {
+.theme-toggle:hover {
   background-color: #0071c5;
-  color: white;
-  padding: 40px 20px;
+  transform: rotate(20deg);
+  box-shadow: 0 0 15px rgba(0, 113, 197, 0.4);
+}
+
+/* ==========================================
+   Header Section
+   ========================================== */
+
+.header-section {
+  background-color: var(--bg-secondary);
+  padding: 3rem 2rem;
+}
+
+.header-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.header-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease;
+}
+
+.header-image img:hover {
+  transform: scale(1.02);
+}
+
+.header-content {
+  padding: 2rem;
+}
+
+.header-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #0071c5;
+  font-weight: 700;
+}
+
+.header-text {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+/* ==========================================
+   Timeline Section
+   ========================================== */
+
+.timeline-section {
+  padding: 4rem 2rem;
+  background-color: var(--bg-primary);
+}
+
+.timeline-heading {
   text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #0071c5;
+  font-weight: 700;
 }
 
-header img {
-  height: 80px;
-  margin-bottom: 20px;
+.timeline-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  overflow-x: auto;
+  padding: 2rem 0;
+  scroll-behavior: smooth;
 }
 
-header h1 {
-  margin: 20px 0 10px 0;
-  font-size: 36px;
+/* Hide scrollbar but keep functionality */
+.timeline-wrapper::-webkit-scrollbar {
+  height: 8px;
 }
 
-header p {
-  margin: 0;
-  font-size: 18px;
-  max-width: 600px;
-  margin: 10px auto 0 auto;
+.timeline-wrapper::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+  border-radius: 10px;
+}
+
+.timeline-wrapper::-webkit-scrollbar-thumb {
+  background: #0071c5;
+  border-radius: 10px;
+}
+
+.timeline-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #005a9a;
 }
 
 .timeline-container {
   display: flex;
-  align-items: center;
-  gap: 15px;
-  padding: 0 20px;
-  justify-content: center;
-  position: relative;
+  gap: 2rem;
+  padding-bottom: 1rem;
+  min-width: min-content;
+  /* Scroll snapping for smooth horizontal scrolling */
+  scroll-snap-type: x mandatory;
 }
 
-.arrow {
-  background-color: #0071c5;
-  color: white;
-  border: none;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  font-size: 24px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 113, 197, 0.08);
-  flex-shrink: 0;
-  z-index: 10;
-}
+/* ==========================================
+   Timeline Cards
+   ========================================== */
 
-.arrow:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 16px rgba(0, 113, 197, 0.15);
-}
-
-.arrow:active {
-  transform: scale(0.95);
-}
-
-section {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: center;
-  overflow-x: auto;
-  gap: 40px;
-  padding: 60px 20px;
-  position: relative;
-  width: 100%;
-  max-width: 100%;
-}
-
-section::before {
-  display: none !important;
-}
-
-section::-webkit-scrollbar {
-  display: none;
-}
-
-section {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-section div {
-  width: 280px;
-  background-color: white;
-  padding: 24px;
-  border-radius: 20px;
-  box-shadow: 0 4px 12px rgba(0, 113, 197, 0.08), 0 0 16px 4px #cce6ff;
-  text-align: center;
-  position: relative;
-  z-index: 1;
+.timeline-card {
+  min-width: 280px;
+  height: 350px;
+  background-color: var(--card-bg);
+  border: 2px solid var(--card-border);
+  border-radius: 12px;
   overflow: hidden;
-  transition: box-shadow 0.3s ease;
-  border: 1px solid #e0e0e0;
-  color: #333;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  /* Scroll snapping */
+  scroll-snap-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-section div:hover {
-  box-shadow: 0 12px 28px rgba(0, 113, 197, 0.15), 0 0 24px 6px #cce6ff;
-  border-color: #0071c5;
-}
-
-.card-summary {
-  transition: opacity 0.3s ease;
-}
-
+/* Card Image */
 .card-image {
   width: 100%;
-  height: 100px;
+  height: 60%;
   object-fit: cover;
-  border-radius: 15px;
-  margin-bottom: 15px;
   display: block;
+  transition: transform 0.4s ease;
 }
 
-.card-details {
-  max-height: 0;
-  overflow: hidden;
+.timeline-card:hover .card-image {
+  transform: scale(1.08);
+}
+
+/* Card Title */
+.card-title {
+  padding: 1.5rem 1rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #0071c5;
+  transition: all 0.4s ease;
+}
+
+/* Card Overlay (Hover Effect) */
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--overlay-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
   opacity: 0;
-  transition: max-height 0.3s ease, opacity 0.3s ease;
+  transition: opacity 0.4s ease;
+  border-left: 4px solid #0071c5;
 }
 
-section div:hover .card-details {
-  max-height: 200px;
+.timeline-card:hover .card-overlay {
   opacity: 1;
 }
 
-section div:hover .card-summary h3 {
-  opacity: 0.6;
+.overlay-text {
+  color: var(--overlay-text);
+  font-size: 1rem;
+  text-align: left;
+  border: 2px solid #0071c5;
+  padding: 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  line-height: 1.6;
 }
 
-section div::before {
-  display: none;
+/* Hover Effects - Scale and Glow */
+.timeline-card:hover {
+  transform: scale(1.05) translateY(-10px);
+  box-shadow: 0 15px 40px var(--glow-color), 
+              0 0 30px rgba(0, 113, 197, 0.4);
+  border-color: #0071c5;
 }
 
-section div h2 {
-  margin: 0 0 8px 0;
-  font-size: 26px;
-  font-weight: 700;
-  color: #0071c5;
-  letter-spacing: -0.3px;
-}
+/* ==========================================
+   Footer
+   ========================================== */
 
-section div h3 {
-  margin: 0 0 12px 0;
-  font-size: 15px;
-  font-weight: 600;
-  color: #333;
-  letter-spacing: 0.2px;
-  text-transform: uppercase;
-  transition: all 0.3s ease;
-}
-
-section div p {
-  margin: 0;
-  font-size: 13px;
-  color: #555;
-  line-height: 1.5;
-  font-weight: 400;
-}
-
-.scroll-hint {
+.footer {
+  background-color: var(--bg-secondary);
+  padding: 2rem;
   text-align: center;
-  color: #666;
-  font-size: 14px;
-  margin: 20px 0;
-  font-weight: 400;
+  color: var(--text-secondary);
+  border-top: 2px solid var(--card-border);
 }
 
-@media (max-width: 767px) {
-  .arrow {
-    width: 45px;
-    height: 45px;
-    font-size: 20px;
+/* ==========================================
+   Responsive Design
+   ========================================== */
+
+/* Tablets (768px and below) */
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 0 1rem;
   }
-  .timeline-container {
-    gap: 10px;
-    padding: 0 10px;
+
+  .nav-links {
+    gap: 1rem;
+    font-size: 0.9rem;
   }
-  section {
+
+  .intel-logo {
+    height: 40px;
+  }
+
+  .header-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .header-title {
+    font-size: 2rem;
+  }
+
+  .header-text {
+    font-size: 1rem;
+  }
+
+  .timeline-heading {
+    font-size: 2rem;
+  }
+
+  .timeline-card {
+    min-width: 260px;
+    height: 330px;
+  }
+
+  .card-title {
+    padding: 1rem;
+    font-size: 1.5rem;
+  }
+}
+
+/* Mobile (480px and below) */
+@media (max-width: 480px) {
+  /* Navigation Bar */
+  .nav-container {
     flex-direction: column;
-    align-items: center;
-    overflow-x: hidden;
-    overflow-y: auto;
-    gap: 30px;
-    padding: 40px 0 60px 0;
-    max-height: 70vh;
+    gap: 1rem;
+    padding: 1rem;
   }
-  section div {
-    width: 90%;
-    min-width: 220px;
-    max-width: 350px;
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
   }
+
+  .nav-links a {
+    font-size: 0.85rem;
+  }
+
+  /* Header Section */
+  .header-section {
+    padding: 2rem 1rem;
+  }
+
+  .header-container {
+    gap: 1.5rem;
+  }
+
+  .header-title {
+    font-size: 1.5rem;
+  }
+
+  .header-text {
+    font-size: 0.9rem;
+  }
+
+  /* Timeline Section */
+  .timeline-section {
+    padding: 2rem 1rem;
+  }
+
+  .timeline-heading {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .timeline-wrapper {
+    padding: 1rem 0;
+  }
+
+  .timeline-container {
+    gap: 1rem;
+  }
+
+  /* Cards Stack Vertically */
+  @supports (display: grid) {
+    .timeline-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      overflow-x: visible;
+      min-width: auto;
+      max-width: 100%;
+    }
+  }
+
+  .timeline-card {
+    min-width: 100%;
+    width: 100%;
+    height: auto;
+    scroll-snap-align: none;
+  }
+
+  .card-image {
+    height: 200px;
+  }
+
+  .card-title {
+    padding: 1rem;
+    font-size: 1.3rem;
+  }
+
+  .overlay-text {
+    font-size: 0.9rem;
+    padding: 1rem;
+  }
+
+  .timeline-card:hover {
+    transform: scale(1.02) translateY(-5px);
+  }
+}
+
+/* ==========================================
+   Smooth Animations and Transitions
+   ========================================== */
+
+/* Add smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Smooth transition for theme changes */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
