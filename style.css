@@ -1,4 +1,17 @@
 @media (max-width: 768px) {
+      .timeline-card {
+        width: 75% !important;
+        height: 288.75px !important; /* 25% less than 385px */
+        font-size: 75% !important;
+      }
+      .timeline-card img,
+      .timeline-card .founders-photo {
+        width: 135px !important; /* 25% less than 180px */
+        height: 135px !important;
+      }
+    .content-box {
+      margin-top: 1in !important;
+    }
   .timeline-wrapper {
     position: relative;
   }
@@ -8,13 +21,26 @@
     transform: translateX(-50%);
     z-index: 10;
   }
+  /* Cleaned up: Only one set of rules for mobile nav arrows, 40px outside the box */
   .nav-arrow.nav-arrow-left {
-    top: -38px !important;
+    left: 50%;
+    right: auto;
+    top: -80px !important;
     bottom: auto !important;
+    transform: translateX(-50%) rotate(90deg);
   }
   .nav-arrow.nav-arrow-right {
-    bottom: -38px !important;
+    left: 50%;
+    right: auto;
     top: auto !important;
+    bottom: -80px !important;
+    transform: translateX(-50%) rotate(90deg);
+  }
+  .nav-arrow:hover {
+    transform: translateX(-50%) rotate(90deg) scale(1.1);
+  }
+  .nav-arrow:active {
+    transform: translateX(-50%) rotate(90deg) scale(0.95);
   }
 }
 @media (max-width: 768px) {
@@ -90,18 +116,14 @@
     margin-bottom: 0 !important;
   }
   .timeline-card {
+    width: 75% !important;
+    height: 288.75px !important;
+    font-size: 75% !important;
     scroll-snap-align: center;
-    margin-top: 8px !important;
-    margin-bottom: 8px !important;
-    height: 385px !important;
+    margin: 8px auto !important;
+    display: block;
   }
-  /* Move up and down arrows slightly for mobile */
-  .nav-arrow.nav-arrow-left {
-    top: 3px !important;
-  }
-  .nav-arrow.nav-arrow-right {
-    bottom: 3px !important;
-  }
+  /* (Removed duplicate arrow position rules) */
 }
 /* --- Force all timeline card images to be large and square (override) --- */
 .timeline-card img,
@@ -1594,27 +1616,7 @@ body.dark-mode .footer-copyright {
   }
   
   /* Mobile navigation arrows - vertical layout */
-  .nav-arrow-left {
-    left: 50%;
-    top: -40px;
-    transform: translateX(-50%) rotate(90deg);
-  }
-  
-  .nav-arrow-right {
-    left: 50%;
-    right: auto;
-    top: auto;
-    bottom: -40px;
-    transform: translateX(-50%) rotate(90deg);
-  }
-  
-  .nav-arrow:hover {
-    transform: translateX(-50%) rotate(90deg) scale(1.1);
-  }
-  
-  .nav-arrow:active {
-    transform: translateX(-50%) rotate(90deg) scale(0.95);
-  }
+  /* (Removed duplicate arrow position rules at end of file) */
 }
 
 /* ==========================================
