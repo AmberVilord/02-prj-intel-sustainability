@@ -1,17 +1,71 @@
 @media (max-width: 768px) {
-      .timeline-card {
-        width: 75% !important;
-        height: 288.75px !important; /* 25% less than 385px */
-        font-size: 75% !important;
-      }
-      .timeline-card img,
-      .timeline-card .founders-photo {
-        width: 135px !important; /* 25% less than 180px */
-        height: 135px !important;
-      }
-    .content-box {
-      margin-top: 1in !important;
+  /* Force vertical scrollbar always visible for timeline container */
+  .timeline-container {
+    overflow-y: scroll !important;
+    overflow-x: hidden !important;
+    height: 60vh !important;
+    max-height: 60vh !important;
+    min-height: 200px !important;
+    width: 95vw !important;
+    box-sizing: border-box;
+  }
+  /* Custom scrollbar for better visibility */
+  .timeline-container::-webkit-scrollbar {
+    width: 10px;
+    background: #eee;
+  }
+  .timeline-container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+  }
+}
+@media (max-width: 768px) {
+  /* Show vertical scrollbar for manual up/down scrolling in timeline */
+  @media (max-width: 768px) {
+    /* Only one set of mobile timeline styles for vertical scroll */
+    .timeline-container {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      overflow-y: auto !important;
+      overflow-x: hidden !important;
+      scrollbar-width: thin;
+      scrollbar-color: #888 #eee;
+      height: 60vh !important;
+      max-height: 60vh !important;
+      min-height: 200px !important;
+      margin-bottom: 11px !important;
+      scroll-snap-type: none !important;
     }
+    .timeline-card {
+      display: block !important;
+      position: static !important;
+      margin: 16px 0 !important;
+      width: 90% !important;
+      max-width: 95% !important;
+      height: auto !important;
+      font-size: 90% !important;
+      scroll-snap-align: none !important;
+    }
+    .timeline-card img,
+    .timeline-card .founders-photo {
+      max-width: 100% !important;
+      height: auto !important;
+    }
+    /* Hide navigation arrows on small screens */
+    .nav-arrow {
+      display: none !important;
+    }
+    /* Prevent nav arrows from moving on hover on small screens */
+    .nav-arrow:hover, .nav-arrow:active, .nav-arrow:focus {
+      transform: none !important;
+      box-shadow: none !important;
+    }
+    /* Remove 10px top padding from the first card on small screens */
+    .timeline-card:first-child {
+      padding-top: 8px !important;
+    }
+  }
   .timeline-wrapper {
     position: relative;
   }
