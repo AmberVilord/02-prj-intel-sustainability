@@ -1,3 +1,27 @@
+@media (max-width: 768px) {
+  .timeline-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    height: 420px; /* or your scrollbox height */
+  }
+  .timeline-card {
+    scroll-snap-align: center;
+    margin-bottom: 24px;
+  }
+}
+/* --- Force all timeline card images to be large and square (override) --- */
+.timeline-card img,
+.timeline-card .founders-photo {
+  width: 180px !important;
+  height: 180px !important;
+  object-fit: cover !important;
+  display: block !important;
+  margin: 0 auto 12px auto !important;
+  border-radius: 12px !important;
+}
 /* Reset default browser styles */
 * {
   margin: 0;
@@ -646,14 +670,16 @@ body.dark-mode .timeline-container:hover {
   /* Performance hint for transforms */
   will-change: transform;
   /* Make timeline card images large and square (beginner-friendly) */
+
+  /* Make all card images larger and square */
   .timeline-card img,
   .timeline-card .founders-photo {
-    width: 180px !important;
-    height: 180px !important;
-    object-fit: cover !important;
+    width: 180px !important; /* Larger size */
+    height: 180px !important; /* Square shape */
+    object-fit: cover !important; /* Crop to fill square */
     display: block;
-    margin: 0 auto 12px auto;
-    border-radius: 12px;
+    margin: 0 auto 12px auto; /* Center image */
+    border-radius: 12px; /* Slightly rounded corners */
   }
 }
 
