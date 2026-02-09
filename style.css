@@ -1,15 +1,43 @@
 @media (max-width: 768px) {
+  .page-header {
+    width: 100vw;
+    margin-left: calc(-1 * (100vw - 100%) / 2);
+    box-sizing: border-box;
+    padding-left: 0;
+    padding-right: 0;
+    transform: scaleY(0.85);
+    transform-origin: top center;
+  }
+  .timeline-wrapper {
+    overflow-y: auto;
+    height: 45vh !important;
+    max-height: 45vh !important;
+    margin-top: 11px !important;
+    margin-bottom: 11px !important;
+  }
   .timeline-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow-y: auto;
+    overflow: visible;
     scroll-snap-type: y mandatory;
-    height: 420px; /* or your scrollbox height */
+    min-height: unset;
+    height: 100%;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
   }
   .timeline-card {
     scroll-snap-align: center;
-    margin-bottom: 24px;
+    margin-top: 8px !important;
+    margin-bottom: 8px !important;
+    height: 385px !important;
+  }
+  /* Move up and down arrows slightly for mobile */
+  .nav-arrow.nav-arrow-left {
+    top: 3px !important;
+  }
+  .nav-arrow.nav-arrow-right {
+    bottom: 3px !important;
   }
 }
 /* --- Force all timeline card images to be large and square (override) --- */
@@ -483,7 +511,7 @@ body.dark-mode .subtitle {
 .nav-link {
   color: #ffffff;
   text-decoration: none;
-  font-size: 9px;
+  font-size: 12px;
   font-weight: 400;
   font-family: 'Poppins', sans-serif;
   letter-spacing: 0.5px;
