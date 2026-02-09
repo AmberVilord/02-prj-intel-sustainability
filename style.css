@@ -1,6 +1,25 @@
 @media (max-width: 768px) {
   .timeline-wrapper {
-    margin-top: 2.5in !important;
+    position: relative;
+  }
+  .nav-arrow {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+  }
+  .nav-arrow.nav-arrow-left {
+    top: -38px !important;
+    bottom: auto !important;
+  }
+  .nav-arrow.nav-arrow-right {
+    bottom: -38px !important;
+    top: auto !important;
+  }
+}
+@media (max-width: 768px) {
+  .timeline-wrapper {
+    margin-top: 2in !important;
   }
 }
 /* Hamburger dropdown menu styling */
@@ -57,7 +76,6 @@
     overflow-y: auto;
     height: 45vh !important;
     max-height: 45vh !important;
-    margin-top: 11px !important;
     margin-bottom: 11px !important;
   }
   .timeline-container {
