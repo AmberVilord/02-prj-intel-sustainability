@@ -1362,10 +1362,18 @@ body.dark-mode .footer-copyright {
   
   /* Make cards wider and centered on mobile */
   .timeline-card {
-    min-width: calc(95% + 100px); /* Wider cards */
-    max-width: calc(95% + 100px);
-    flex: 0 0 calc(95% + 100px);
-    margin: 0 auto 20px auto; /* Center and space between stacked cards */
+    width: 90vw;
+    min-width: 90vw;
+    max-width: 90vw;
+    height: 200px;
+    min-height: 200px;
+    max-height: 200px;
+    margin: 0 auto 16px auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
   }
   
   /* Hide details on mobile until hover */
@@ -1858,9 +1866,18 @@ body.dark-mode .footer-copyright {
   }
 
   .timeline-card {
-    min-width: 100%;
-    width: 100%;
-    height: auto;
+    width: 98vw;
+    min-width: 98vw;
+    max-width: 98vw;
+    height: 140px;
+    min-height: 140px;
+    max-height: 140px;
+    margin: 0 auto 8px auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
     scroll-snap-align: none;
   }
 
