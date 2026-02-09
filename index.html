@@ -9,6 +9,22 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Video background for light mode -->
+  <video class="light-mode-video-bg" autoplay loop muted playsinline>
+    <source src="https://www.shutterstock.com/shutterstock/videos/3851428755/preview/stock-footage-this-blue-circuit-board-with-microchip-is-perfect-for-technology-themed-designs-and-digital.webm" type="video/webm">
+  </video>
+  
+  <!-- White overlay for light mode -->
+  <div class="light-mode-overlay"></div>
+  
+  <!-- Video background for dark mode -->
+  <video class="dark-mode-video-bg" autoplay loop muted playsinline>
+    <source src="https://www.shutterstock.com/shutterstock/videos/3443381611/preview/stock-footage-advanced-microchip-connecting-with-a-pcb-and-powering-entire-system-energy-impulse-expanding-after.webm" type="video/webm">
+  </video>
+  
+  <!-- Black overlay for dark mode -->
+  <div class="dark-mode-overlay"></div>
+  
   <!-- Hamburger menu button -->
   <button class="hamburger-menu" id="hamburgerMenu" aria-label="Menu">
     <span class="hamburger-line"></span>
@@ -27,6 +43,16 @@
     <img src="img/intel-header-logo.svg" alt="Intel Logo" class="intel-logo">
     <h1 class="page-title">Sustainability Timeline</h1>
     <p class="subtitle">A Journey Through Innovation and Excellence</p>
+    
+    <!-- Navigation links -->
+    <nav class="header-nav">
+      <a href="https://www.intel.com/content/www/us/en/products/overview.html" class="nav-link">Products</a>
+      <a href="https://www.intel.com/content/www/us/en/support.html" class="nav-link">Support</a>
+      <a href="https://www.intel.com/content/www/us/en/solutions/overview.html" class="nav-link">Solutions</a>
+      <a href="https://www.intel.com/content/www/us/en/developer/overview.html" class="nav-link">Developers</a>
+      <a href="https://www.intel.com/content/www/us/en/partner/overview.html" class="nav-link">Partners</a>
+      <a href="https://www.intel.com/content/www/us/en/foundry/overview.html" class="nav-link">Foundry</a>
+    </nav>
   </header>
   
   <!-- Timeline container - will scroll horizontally on large screens -->
@@ -38,6 +64,11 @@
       <div class="card-badge">Innovation</div>
       <h2>1968</h2>
       <h3>Intel Founded</h3>
+      <!-- HTML -->
+      <div class="intel-founders">
+        <img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/7311f18b-9d81-51ea-bfd4-794f25bd58ea/01a84265-e09c-5682-92ce-681c89a1afe2.jpg"
+             alt="Gordon Moore and Robert Noyce, founders of Intel">
+      </div>
       <p class="card-details">Robert Noyce and Gordon Moore founded Intel Corporation, beginning a journey of innovation.</p>
     </div>
     
@@ -129,9 +160,27 @@
   
   <!-- Footer section with Intel Inside branding -->
   <footer class="page-footer">
+    <div class="footer-contact">
+      <p class="footer-contact-title">Contact the developer</p>
+      <div class="footer-contact-links">
+        <a class="contact-link" href="mailto:MrsVilord@gmail.com">
+          <span class="contact-icon contact-icon-email">E</span>
+          MrsVilord@gmail.com
+        </a>
+        <a class="contact-link" href="https://www.facebook.com/amber.dawdy.75/" target="_blank" rel="noopener">
+          <span class="contact-icon contact-icon-facebook">F</span>
+          Facebook
+        </a>
+        <a class="contact-link" href="https://www.linkedin.com/in/ambervilord/" target="_blank" rel="noopener">
+          <span class="contact-icon contact-icon-linkedin">in</span>
+          LinkedIn
+        </a>
+      </div>
+    </div>
     <img src="img/intel-inside-logo.svg" alt="Intel Inside Logo" class="intel-inside-logo">
     <p class="footer-text">Powering Innovation Since 1968</p>
     <p class="footer-copyright">&copy; 2026 Intel Corporation. All rights reserved.</p>
+    <p class="footer-student-credit">Created as a student project for the GCE program by Amber Vilord: Senior at the University of Missouri - Columbia 2026 &copy;</p>
   </footer>
   
   <!-- Theme toggle script -->
@@ -161,18 +210,41 @@
     const scrollRightBtn = document.getElementById('scrollRight');
     const scrollAmount = 350; // Scroll distance per click
 
+    // Check if we're on mobile (small screen)
+    function isMobile() {
+      return window.innerWidth <= 768;
+    }
+
     scrollLeftBtn.addEventListener('click', () => {
-      timelineContainer.scrollBy({
-        left: -scrollAmount,
-        behavior: 'smooth'
-      });
+      if (isMobile()) {
+        // Scroll up on mobile
+        timelineContainer.scrollBy({
+          top: -scrollAmount,
+          behavior: 'smooth'
+        });
+      } else {
+        // Scroll left on desktop
+        timelineContainer.scrollBy({
+          left: -scrollAmount,
+          behavior: 'smooth'
+        });
+      }
     });
 
     scrollRightBtn.addEventListener('click', () => {
-      timelineContainer.scrollBy({
-        left: scrollAmount,
-        behavior: 'smooth'
-      });
+      if (isMobile()) {
+        // Scroll down on mobile
+        timelineContainer.scrollBy({
+          top: scrollAmount,
+          behavior: 'smooth'
+        });
+      } else {
+        // Scroll right on desktop
+        timelineContainer.scrollBy({
+          left: scrollAmount,
+          behavior: 'smooth'
+        });
+      }
     });
   </script>
 </body>
