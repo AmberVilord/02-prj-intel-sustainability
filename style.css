@@ -1,3 +1,50 @@
+.timeline-container {
+  scroll-behavior: smooth;
+}
+/* Banner instructions at bottom right of top banner */
+.banner-instructions {
+  position: absolute;
+  right: 24px;
+  bottom: 8px;
+  font-size: 1rem;
+  color: #003366;
+  font-family: 'Poppins', Arial, sans-serif;
+  opacity: 0.85;
+  z-index: 2;
+  pointer-events: none;
+}
+/* Both large and small instructions get overlay and padding */
+.banner-instructions-large, .banner-instructions-small {
+  display: inline;
+  background: rgba(255,255,255,0.7);
+  padding: 2px 6px;
+  border-radius: 6px;
+  max-width: 70vw;
+  box-sizing: border-box;
+}
+.banner-instructions-large {
+  font-size: 1rem;
+}
+.banner-instructions-small {
+  display: none;
+}
+@media (max-width: 768px) {
+  .banner-instructions-large {
+    display: none;
+  }
+  .banner-instructions-small {
+    display: inline;
+    font-size: 0.62rem;
+  }
+  .banner-instructions {
+    right: 8px;
+    bottom: 2px;
+  }
+}
+/* Ensure .page-header is positioned relative for absolute child */
+.page-header {
+  position: relative;
+}
 @media (max-width: 768px) {
   /* Force vertical scrollbar always visible for timeline container */
   .timeline-container {
@@ -2041,14 +2088,17 @@ body.dark-mode .footer-copyright {
   }
 
   /* Cards Stack Vertically */
+
   @supports (display: grid) {
     .timeline-container {
       display: grid;
       grid-template-columns: 1fr;
       gap: 1.5rem;
-      overflow-x: visible;
+      overflow-y: auto;
+      overflow-x: hidden;
       min-width: auto;
       max-width: 100%;
+      scroll-behavior: smooth;
     }
   }
 

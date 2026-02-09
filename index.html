@@ -76,6 +76,11 @@
       <a href="https://www.intel.com/content/www/us/en/partner/overview.html" class="nav-link">Partners</a>
       <a href="https://www.intel.com/content/www/us/en/foundry/overview.html" class="nav-link">Foundry</a>
     </nav>
+    <!-- Responsive instructions at bottom right of banner -->
+    <div class="banner-instructions">
+      <span class="banner-instructions-large">Scroll to explore; Hover to learn more.</span>
+      <span class="banner-instructions-small">Drag to explore; Click to learn more.</span>
+    </div>
   </header>
   
   <!-- Timeline container - will scroll horizontally on large screens -->
@@ -313,6 +318,43 @@
         });
       }
     });
+
+    // Enable click and drag (touch drag) to scroll timeline on small screens
+    let isDragging = false;
+    let startY;
+    let scrollTop;
+
+    function enableTimelineDrag() {
+      timelineContainer.addEventListener('pointerdown', function(e) {
+        if (!isMobile()) return;
+        isDragging = true;
+        timelineContainer.style.cursor = 'grabbing';
+        startY = e.clientY;
+        scrollTop = timelineContainer.scrollTop;
+        timelineContainer.setPointerCapture(e.pointerId);
+      });
+
+      timelineContainer.addEventListener('pointermove', function(e) {
+        if (!isMobile() || !isDragging) return;
+        const dy = e.clientY - startY;
+        timelineContainer.scrollTop = scrollTop - dy;
+      });
+
+      timelineContainer.addEventListener('pointerup', function(e) {
+        if (!isMobile()) return;
+        isDragging = false;
+        timelineContainer.style.cursor = '';
+        timelineContainer.releasePointerCapture(e.pointerId);
+      });
+
+      timelineContainer.addEventListener('pointerleave', function(e) {
+        if (!isMobile()) return;
+        isDragging = false;
+        timelineContainer.style.cursor = '';
+      });
+    }
+
+    enableTimelineDrag();
   </script>
 </body>
 </html>
