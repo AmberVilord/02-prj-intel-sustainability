@@ -31,6 +31,27 @@
     <span class="hamburger-line"></span>
     <span class="hamburger-line"></span>
   </button>
+  <!-- Hamburger dropdown menu -->
+  <nav class="hamburger-dropdown" id="hamburgerDropdown" style="display: none;">
+    <ul>
+      <li><a href="https://www.intel.com/content/www/us/en/company-overview/company-overview.html" target="_blank">Company Overview</a></li>
+      <li><a href="https://www.intel.com/content/www/us/en/contact-us/contact-intel.html" target="_blank">Contact Intel</a></li>
+      <li><a href="https://www.intel.com/content/www/us/en/newsroom/newsroom.html" target="_blank">Newsroom</a></li>
+      <li><a href="https://www.intel.com/content/www/us/en/investor-relations/investor-relations.html" target="_blank">Investors</a></li>
+      <li><a href="https://www.intel.com/content/www/us/en/jobs/jobs-at-intel.html" target="_blank">Careers</a></li>
+      <li><a href="https://www.intel.com/content/www/us/en/corporate-responsibility/corporate-responsibility.html" target="_blank">Corporate Responsibility</a></li>
+      <li><a href="https://www.intel.com/content/www/us/en/diversity/diversity-at-intel.html" target="_blank">Inclusion</a></li>
+      <li><a href="https://www.intel.com/content/www/us/en/public-policy/public-policy.html" target="_blank">Public Policy</a></li>
+      
+      
+      <li><a href="https://www.intel.com/content/www/us/en/legal/trademarks.html" target="_blank">*Trademarks</a></li>
+      
+      <li><a href="https://www.intel.com/content/www/us/en/privacy/intel-privacy-notice.html" target="_blank">Privacy</a></li>
+      <li><a href="https://www.intel.com/content/www/us/en/supply-chain/supply-chain-transparency.html" target="_blank">Supply Chain Transparency</a></li>
+      
+      <li><a href="https://www.intel.com/content/www/us/en/recycling/recycling.html" target="_blank">Recycling</a></li>
+    </ul>
+  </nav>
   
   <!-- Theme toggle button -->
   <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
@@ -40,7 +61,9 @@
   
   <!-- Header section with Intel logo -->
   <header class="page-header">
-    <img src="img/intel-header-logo.svg" alt="Intel Logo" class="intel-logo">
+    <a href="https://www.intel.com/" target="_blank" rel="noopener">
+      <img src="img/intel-header-logo.svg" alt="Intel Logo" class="intel-logo">
+    </a>
     <h1 class="page-title">Sustainability Timeline</h1>
     <p class="subtitle">A Journey Through Innovation and Excellence</p>
     
@@ -230,7 +253,24 @@
       }
     });
 
-    // Timeline navigation arrow functionality
+    // Hamburger menu dropdown functionality
+    const hamburgerMenu = document.getElementById('hamburgerMenu');
+    const hamburgerDropdown = document.getElementById('hamburgerDropdown');
+    hamburgerMenu.addEventListener('click', function() {
+      if (hamburgerDropdown.style.display === 'block') {
+        hamburgerDropdown.style.display = 'none';
+      } else {
+        hamburgerDropdown.style.display = 'block';
+      }
+    });
+
+    // Close dropdown if clicking outside
+    document.addEventListener('click', function(event) {
+      if (!hamburgerMenu.contains(event.target) && !hamburgerDropdown.contains(event.target)) {
+        hamburgerDropdown.style.display = 'none';
+      }
+    });
+
     // Timeline navigation arrow functionality
     const timelineContainer = document.querySelector('.timeline-container');
     const scrollLeftBtn = document.getElementById('scrollLeft');
