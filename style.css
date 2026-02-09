@@ -645,6 +645,16 @@ body.dark-mode .timeline-container:hover {
   
   /* Performance hint for transforms */
   will-change: transform;
+  /* Make timeline card images large and square (beginner-friendly) */
+  .timeline-card img,
+  .timeline-card .founders-photo {
+    width: 180px !important;
+    height: 180px !important;
+    object-fit: cover !important;
+    display: block;
+    margin: 0 auto 12px auto;
+    border-radius: 12px;
+  }
 }
 
 /* Make the first card slightly taller (about 10%) */
@@ -1789,8 +1799,12 @@ body.dark-mode .footer-copyright {
   }
 
   .timeline-card {
-    min-width: 260px;
-    height: 330px;
+    width: 67.5vw;
+    min-width: 67.5vw;
+    max-width: 67.5vw;
+    height: 352px;
+    min-height: 352px;
+    max-height: 352px;
   }
 
   .card-title {
