@@ -560,7 +560,7 @@ body.dark-mode .nav-link {
 .timeline-wrapper {
   position: relative;
   width: calc(100% - 5in);
-  margin: 0px 2.5in 10px 2.5in;
+  margin: 20px 2.5in 10px 2.5in;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -573,7 +573,7 @@ body.dark-mode .nav-link {
   gap: 12px;
   overflow-x: auto;
   overflow-y: hidden;
-  padding: 12px 10px 12px 40px;
+  padding: 32px 10px 12px 40px;
   border-radius: 16px;
   flex: 1;
   perspective: 1000px;
@@ -645,6 +645,12 @@ body.dark-mode .timeline-container:hover {
   
   /* Performance hint for transforms */
   will-change: transform;
+}
+
+/* Make the first card slightly taller (about 10%) */
+.timeline-card:first-child {
+  padding-top: 7px;
+  padding-bottom: 7px;
 }
 
 /* Animated background glow effect - disabled for performance */
@@ -834,10 +840,17 @@ body.dark-mode .timeline-card h3 {
 /* Founders image inside first card */
 .intel-founders img {
   width: 100%;
-  height: auto;
+  height: 90px; /* Keep all card images the same height */
+  object-fit: cover; /* Crop gently to fit the fixed height */
   border-radius: 8px;
   margin: 6px 0;
   display: block;
+}
+
+/* Keep both faces visible in the founders photo */
+.founders-photo {
+  object-fit: cover;
+  object-position: center -60px;
 }
 
 /* Title hover effect */
@@ -976,11 +989,11 @@ body.dark-mode .timeline-card:hover .card-badge {
 }
 
 .nav-arrow-left {
-  left: 8px;
+  left: -48px;
 }
 
 .nav-arrow-right {
-  right: 8px;
+  right: -48px;
 }
 
 body.dark-mode .nav-arrow {
