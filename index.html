@@ -1,140 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Intel: Sustainability Through the Ages</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intel Timeline</title>
+  <!-- Google Fonts for eye-catching typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <!-- Removed moon icon button -->
-
-  <!-- Header / Hero Section as Thought Bubble Banner -->
-  <header class="banner" style="margin-left:24px;text-align:left;">
-    <div>
-      <img src="img/intel-header-logo.svg" alt="Intel Logo" />
-      <h1>Sustainability Through the Ages</h1>
-      <p>
-        Explore Intel's journey through time, discovering how our commitment
-        to innovation has shaped a more sustainable future for technology 
-        and our planet.
-      </p>
-      <span class="bubble-tail"></span>
-    </div>
+  <!-- Theme toggle button -->
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+    <span class="sun-icon">☼</span>
+    <span class="moon-icon">☽</span>
+  </button>
+  
+  <!-- Header section with Intel logo -->
+  <header class="page-header">
+    <img src="img/intel-header-logo.svg" alt="Intel Logo" class="intel-logo">
+    <h1 class="page-title">Intel Timeline</h1>
+    <p class="subtitle">A Journey Through Innovation and Excellence</p>
   </header>
-
-  <!-- Timeline Cards Section -->
-  <section>
-
-    <!-- Card 1: 1968 -->
-    <div>
+  
+  <!-- Timeline container - will scroll horizontally on large screens -->
+  <div class="timeline-wrapper">
+    <div class="timeline-container">
+    
+    <!-- Timeline card 1 -->
+    <div class="timeline-card">
+      <div class="card-badge">Innovation</div>
       <h2>1968</h2>
       <h3>Intel Founded</h3>
-      <!-- Add image -->
-      <p>
-        Robert Noyce and Gordon Moore rename the newly formed company 
-        NM Electronics to Intel Corporation, laying the foundation for 
-        decades of technological innovation.
-      </p>
+      <p class="card-details">Robert Noyce and Gordon Moore founded Intel Corporation, beginning a journey of innovation.</p>
     </div>
-
-    <!-- Card 2: 1971 -->
-    <div>
+    
+    <!-- Timeline card 2 -->
+    <div class="timeline-card">
+      <div class="card-badge">Breakthrough</div>
       <h2>1971</h2>
       <h3>First Microprocessor</h3>
-      <!-- Add image -->
-      <p>
-        Intel debuts the 4004, the world's first commercial microprocessor, 
-        igniting the microprocessor revolution and propelling the future 
-        of computing devices.
-      </p>
+      <p class="card-details">Intel introduced the 4004, the world's first commercial microprocessor.</p>
     </div>
-
-    <!-- Card 3: 1978 -->
-    <div>
+    
+    <!-- Timeline card 3 -->
+    <div class="timeline-card">
+      <div class="card-badge">Architecture</div>
       <h2>1978</h2>
       <h3>8086 Processor</h3>
-      <!-- Add image -->
-      <p>
-        Launch of the 8086 processor, establishing the x86 architecture 
-        that drives countless PCs and servers in the modern era.
-      </p>
+      <p class="card-details">Launch of the 8086 processor, establishing the x86 architecture.</p>
     </div>
-
-    <!-- Card 4: 1985 -->
-    <div>
+    
+    <!-- Timeline card 4 -->
+    <div class="timeline-card">
+      <div class="card-badge">Evolution</div>
       <h2>1985</h2>
       <h3>386 Processor</h3>
-      <!-- Add image -->
-      <p>
-        Intel introduces the 386 processor with 32-bit architecture, 
-        ushering in a new era of performance and multitasking for 
-        personal computers.
-      </p>
+      <p class="card-details">Intel 386 processor introduced 32-bit architecture to personal computers.</p>
     </div>
-
-    <!-- Card 5: 2006 -->
-    <div>
+    
+    <!-- Timeline card 5 -->
+    <div class="timeline-card">
+      <div class="card-badge">Revolution</div>
+      <h2>1993</h2>
+      <h3>Pentium Era</h3>
+      <p class="card-details">The Pentium processor revolutionized computing performance.</p>
+    </div>
+    
+    <!-- Timeline card 6 -->
+    <div class="timeline-card">
+      <div class="card-badge">Multi-Core</div>
       <h2>2006</h2>
-      <h3>Peak GHG Emissions</h3>
-      <!-- Add image -->
-      <p>
-        This year marks Intel's highest annual greenhouse gas emissions 
-        for operations. Over subsequent years, Intel invests heavily in 
-        chemical abatement, renewable energy, and energy-efficient 
-        manufacturing to reverse this trend.
-      </p>
+      <h3>Core Processors</h3>
+      <p class="card-details">Intel Core processors debut with multi-core technology.</p>
     </div>
-
-    <!-- Card 6: 2020 -->
-    <div>
-      <h2>2020</h2>
-      <h3>RISE Strategy</h3>
-      <!-- Add image -->
-      <p>
-        Intel launches its RISE (Responsible, Inclusive, Sustainable, 
-        Enabling) strategy and 2030 goals, aiming to drive industry-wide 
-        progress on climate action, water stewardship, and waste reduction.
-      </p>
+    
+    <!-- Timeline card 7 -->
+    <div class="timeline-card">
+      <div class="card-badge">Efficiency</div>
+      <h2>2015</h2>
+      <h3>Skylake Architecture</h3>
+      <p class="card-details">Skylake architecture advanced computing efficiency.</p>
     </div>
-
-    <!-- Card 7: 2022 -->
-    <div>
-      <h2>2022</h2>
-      <h3>Net-Zero By 2040</h3>
-      <!-- Add image -->
-      <p>
-        Intel announces its commitment to achieve net-zero greenhouse 
-        gas emissions (Scope 1 and 2) across its global operations 
-        by 2040, building on years of environmental initiatives.
-      </p>
+    
+    <!-- Timeline card 8 -->
+    <div class="timeline-card">
+      <div class="card-badge">Innovation</div>
+      <h2>2021</h2>
+      <h3>Process Innovation</h3>
+      <p class="card-details">Intel commits to next-generation manufacturing technology.</p>
     </div>
-
-    <!-- Card 8: 2023 -->
-    <div>
-      <h2>2023</h2>
-      <h3>Renewable Electricity</h3>
-      <!-- Add image -->
-      <p>
-        The company achieves 99% renewable electricity usage worldwide, 
-        helping to drastically lower carbon emissions and driving progress 
-        toward Intel's long-term sustainability goals.
-      </p>
-    </div>
-
-    <!-- Card 9: 2024 -->
-    <div>
+    
+    <!-- Timeline card 9 -->
+    <div class="timeline-card">
+      <div class="card-badge">Future</div>
       <h2>2024</h2>
-      <h3>Sustainability Summit</h3>
-      <!-- Add image -->
-      <p>
-        Intel hosts its first Sustainability Summit, uniting suppliers, 
-        government officials, and industry leaders to collaborate on 
-        next-generation sustainable semiconductor manufacturing.
-      </p>
+      <h3>Future Forward</h3>
+      <p class="card-details">Intel shapes the future with advanced semiconductor solutions.</p>
     </div>
-  </section>
-  <p>Scroll to view timeline | Hover over cards to learn more!</p>
+    
+    </div>
+    
+    <!-- Navigation arrows positioned outside the timeline -->
+    <button class="nav-arrow nav-arrow-left" id="scrollLeft" aria-label="Scroll left">❮</button>
+    <button class="nav-arrow nav-arrow-right" id="scrollRight" aria-label="Scroll right">❯</button>
+  </div>
+  
+  <!-- Footer section with Intel Inside branding -->
+  <footer class="page-footer">
+    <img src="img/intel-inside-logo.svg" alt="Intel Inside Logo" class="intel-inside-logo">
+    <p class="footer-text">Powering Innovation Since 1968</p>
+    <p class="footer-copyright">&copy; 2026 Intel Corporation. All rights reserved.</p>
+  </footer>
+  
+  <!-- Theme toggle script -->
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+    
+    // Check for saved theme preference or default to dark mode
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    body.classList.add(currentTheme + '-mode');
+    
+    themeToggle.addEventListener('click', () => {
+      if (body.classList.contains('dark-mode')) {
+        body.classList.remove('dark-mode');
+        body.classList.add('light-mode');
+        localStorage.setItem('theme', 'light');
+      } else {
+        body.classList.remove('light-mode');
+        body.classList.add('dark-mode');
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+
+    // Timeline navigation arrow functionality
+    const timelineContainer = document.querySelector('.timeline-container');
+    const scrollLeftBtn = document.getElementById('scrollLeft');
+    const scrollRightBtn = document.getElementById('scrollRight');
+    const scrollAmount = 350; // Scroll distance per click
+
+    scrollLeftBtn.addEventListener('click', () => {
+      timelineContainer.scrollBy({
+        left: -scrollAmount,
+        behavior: 'smooth'
+      });
+    });
+
+    scrollRightBtn.addEventListener('click', () => {
+      timelineContainer.scrollBy({
+        left: scrollAmount,
+        behavior: 'smooth'
+      });
+    });
+  </script>
 </body>
 </html>

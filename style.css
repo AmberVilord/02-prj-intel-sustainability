@@ -1,300 +1,1279 @@
-body {
+/* Reset default browser styles */
+* {
   margin: 0;
   padding: 0;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  /* Intel processor wallpaper background */
-  background-image: url('https://www.highreshdwallpapers.com/wp-content/uploads/2012/08/Intel-Processor-Wallpaper.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
-  background-color: #f5f5f5;
-  color: #333;
-  transition: background 0.3s, color 0.3s;
+  box-sizing: border-box;
 }
 
-body.dark-mode {
-  background-color: #1a1a1a;
-  color: #f0f0f0;
+/* CSS Variables for Light and Dark Mode */
+:root {
+  /* Light Mode Colors */
+  --light-bg-primary: linear-gradient(135deg, #f0f4ff 0%, #e6f0ff 50%, #f5f8ff 100%);
+  --light-bg-secondary: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
+  --light-card-bg: linear-gradient(135deg, #ffffff 0%, #fafcff 100%);
+  --light-text-primary: #0a2540;
+  --light-text-secondary: #1e3a5f;
+  --light-text-muted: #4a6fa5;
+  --light-accent-primary: #0071c5;
+  --light-accent-secondary: #0095ff;
+  --light-accent-glow: rgba(0, 113, 197, 0.3);
+  --light-border: rgba(0, 113, 197, 0.2);
+  --light-shadow: rgba(0, 113, 197, 0.15);
+  
+  /* Dark Mode Colors - Intel Blue Theme */
+  --dark-bg-primary: linear-gradient(135deg, #0a0f1e 0%, #1a2332 50%, #0f1922 100%);
+  --dark-bg-secondary: linear-gradient(135deg, #1a2332 0%, #0f1922 100%);
+  --dark-card-bg: linear-gradient(135deg, #1e3a5f 0%, #0f2744 100%);
+  --dark-text-primary: #e6f0ff;
+  --dark-text-secondary: #b3d4ff;
+  --dark-text-muted: #8ba8c4;
+  --dark-accent-primary: #0095ff;
+  --dark-accent-secondary: #00c7fd;
+  --dark-accent-glow: rgba(0, 199, 253, 0.5);
+  --dark-border: rgba(0, 199, 253, 0.3);
+  --dark-shadow: rgba(0, 199, 253, 0.25);
 }
 
-/* Comic book style thought bubble banner */
- .banner {
-  background-color: #002a4d;
-  color: #fff;
-  border-radius: 36px;
-  padding: 22px 18px 26px 18px;
-  margin: 24px auto 10px auto;
-  max-width: 480px;
-  text-align: center;
+/* Body styling - uses theme variables */
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  padding: 15px 10px;
+  min-height: 100vh;
   position: relative;
-  font-weight: bold;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.10), 0 0 18px 4px #7ecbff;
-  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+  transition: background 0.5s ease, color 0.5s ease;
+  max-width: 100vw;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
-/* Comic book bubble tails */
-.banner::after, .banner::before, .banner .bubble-tail {
-  content: "";
-  position: absolute;
-  background: #004a86;
-  border-radius: 50%;
-  opacity: 0.95;
-  box-shadow: 0 2px 10px 0 #7ecbff;
+/* Light Mode Styles */
+body.light-mode {
+  background: var(--light-bg-primary);
+  color: var(--light-text-primary);
 }
 
-.banner::after {
-  width: 28px;
-  height: 28px;
-  left: 60%;
-  bottom: -20px;
-  z-index: 1;
+/* Dark Mode Styles */
+body.dark-mode {
+  background: var(--dark-bg-primary);
+  color: var(--dark-text-primary);
 }
 
-.banner::before {
-  width: 18px;
-  height: 18px;
-  left: 66%;
-  bottom: -34px;
-  z-index: 0;
-}
-
-.banner .bubble-tail {
-  width: 12px;
-  height: 12px;
-  left: 70%;
-  bottom: -42px;
-  z-index: 0;
-  position: absolute;
-}
-
-body.dark-mode .banner,
-body.dark-mode .banner::after,
-body.dark-mode .banner::before,
-body.dark-mode .banner .bubble-tail {
-  background-color: #00325a;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.32), 0 0 18px 4px #3a6a8c;
-}
-
+/* Theme Toggle Button */
 .theme-toggle {
   position: fixed;
   top: 20px;
   right: 20px;
-  z-index: 1000;
-  background: #fff;
-  color: #004a86;
-  border: 2px solid #004a86;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  width: 44px;
-  height: 44px;
-  font-size: 22px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
   cursor: pointer;
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.3s, color 0.3s;
-}
-body.dark-mode .theme-toggle {
-  background: #222;
-  color: #fff;
-  border-color: #fff;
+  font-size: 28px;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  backdrop-filter: blur(10px);
 }
 
-header {
-  background-color: #0071c5;
+/* Icon styling - white outlined */
+.theme-toggle .sun-icon,
+.theme-toggle .moon-icon {
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.8));
   color: white;
-  padding: 40px 20px;
+}
+
+/* Light mode toggle button */
+body.light-mode .theme-toggle {
+  background: rgba(0, 113, 197, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 113, 197, 0.4);
+}
+
+body.light-mode .theme-toggle .sun-icon {
+  display: none;
+}
+
+body.light-mode .theme-toggle .moon-icon {
+  display: block;
+}
+
+/* Dark mode toggle button */
+body.dark-mode .theme-toggle {
+  background: rgba(0, 199, 253, 0.25);
+  box-shadow: 0 4px 20px rgba(0, 199, 253, 0.6);
+}
+
+body.dark-mode .theme-toggle .sun-icon {
+  display: block;
+}
+
+body.dark-mode .theme-toggle .moon-icon {
+  display: none;
+}
+
+/* Toggle button hover effect */
+body.light-mode .theme-toggle:hover {
+  transform: scale(1.1) rotate(15deg);
+  background: rgba(0, 113, 197, 0.45);
+  box-shadow: 0 8px 30px rgba(0, 113, 197, 0.6);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+body.dark-mode .theme-toggle:hover {
+  transform: scale(1.1) rotate(15deg);
+  background: rgba(0, 199, 253, 0.4);
+  box-shadow: 0 8px 30px rgba(0, 199, 253, 0.7);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.theme-toggle:active {
+  transform: scale(0.95) rotate(-15deg);
+}
+
+/* Header section - elegant container for logo and title */
+.page-header {
   text-align: center;
+  margin-bottom: 10px;
+  animation: fadeInDown 0.8s ease-out;
 }
 
-header img {
-  height: 80px;
-  margin-bottom: 20px;
+/* Intel logo - elegant, centered presentation */
+.intel-logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 10px;
+  animation: fadeIn 1s ease-out;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
 }
 
-header h1 {
-  margin: 20px 0 10px 0;
+body.light-mode .intel-logo {
+  filter: drop-shadow(0 4px 12px rgba(0, 113, 197, 0.3));
+}
+
+body.dark-mode .intel-logo {
+  filter: drop-shadow(0 4px 12px rgba(0, 199, 253, 0.4));
+}
+
+.intel-logo:hover {
+  transform: translateY(-5px) scale(1.05);
+}
+
+body.light-mode .intel-logo:hover {
+  filter: drop-shadow(0 8px 20px rgba(0, 113, 197, 0.5));
+}
+
+body.dark-mode .intel-logo:hover {
+  filter: drop-shadow(0 8px 20px rgba(0, 199, 253, 0.7));
+}
+
+/* Page title styling */
+.page-title {
+  text-align: center;
+  margin-bottom: 5px;
   font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  position: relative;
+  padding-bottom: 20px;
+  transition: color 0.5s ease, text-shadow 0.5s ease, transform 0.5s ease;
+  font-family: 'Bebas Neue', 'Impact', sans-serif;
+  font-style: normal;
+  word-spacing: 8px;
+  transform: scaleY(1.1);
 }
 
-header p {
-  margin: 0;
-  font-size: 18px;
-  max-width: 600px;
-  margin: 10px auto 0 auto;
+body.light-mode .page-title {
+  color: #0071c5;
+  text-shadow: 0 4px 15px rgba(0, 113, 197, 0.3);
+}
+
+body.dark-mode .page-title {
+  color: #00c7fd;
+  text-shadow: 
+    0 4px 25px rgba(0, 199, 253, 0.6),
+    0 0 40px rgba(0, 199, 253, 0.3);
+}
+
+/* Decorative underline accent for title */
+.page-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  border-radius: 2px;
+  transition: background 0.5s ease, box-shadow 0.5s ease;
+}
+
+body.light-mode .page-title::after {
+  background: linear-gradient(90deg, #0071c5 0%, #0095ff 100%);
+  box-shadow: 0 2px 10px rgba(0, 113, 197, 0.3);
+}
+
+body.dark-mode .page-title::after {
+  background: linear-gradient(90deg, #0071c5 0%, #0095ff 50%, #00c7fd 100%);
+  box-shadow: 0 0 20px rgba(0, 199, 253, 0.6);
+}
+
+/* Subtitle - eye-catching elegant tagline below title */
+.subtitle {
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 0.8px;
+  margin-top: 10px;
+  animation: fadeIn 1.2s ease-out;
+  font-family: 'Poppins', sans-serif;
+  text-transform: capitalize;
+  opacity: 0.95;
+  transition: color 0.5s ease;
+}
+
+body.light-mode .subtitle {
+  color: #0071c5;
+  text-shadow: 0 2px 8px rgba(0, 113, 197, 0.15);
+}
+
+body.dark-mode .subtitle {
+  color: #00c7fd;
+  text-shadow: 0 2px 10px rgba(0, 199, 253, 0.3);
+}
+
+/* Fade in animation for logo and subtitle */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade in down animation for header */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slide in up animation for cards */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Apply entrance animation to cards (simplified for performance) */
+.timeline-card {
+  animation: slideInUp 0.6s ease-out backwards;
+}
+
+/* Stagger animation delay for each card - creates wave effect */
+.timeline-card:nth-child(1) { 
+  animation-delay: 0.1s;
+  min-width: 265px !important;
+  max-width: 265px !important;
+}
+.timeline-card:nth-child(2) { animation-delay: 0.2s; }
+.timeline-card:nth-child(3) { animation-delay: 0.3s; }
+.timeline-card:nth-child(4) { animation-delay: 0.4s; }
+.timeline-card:nth-child(5) { animation-delay: 0.5s; }
+.timeline-card:nth-child(6) { animation-delay: 0.6s; }
+.timeline-card:nth-child(7) { animation-delay: 0.7s; }
+.timeline-card:nth-child(8) { animation-delay: 0.8s; }
+.timeline-card:nth-child(9) { animation-delay: 0.9s; }
+
+/* Show top accent on hover - simplified */
+.timeline-card:hover::before {
+  opacity: 1;
+}
+
+/* Timeline container - prominent scrollable box with professional styling */
+.timeline-wrapper {
+  position: relative;
+  width: calc(100% - 24px);
+  margin: 10px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  overflow: visible;
 }
 
 .timeline-container {
   display: flex;
-  align-items: center;
   gap: 15px;
-  padding: 0 20px;
-  justify-content: center;
-  position: relative;
-}
-
-.arrow {
-  background-color: #0071c5;
-  color: white;
-  border: none;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  font-size: 24px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 113, 197, 0.08);
-  flex-shrink: 0;
-  z-index: 10;
-}
-
-.arrow:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 16px rgba(0, 113, 197, 0.15);
-}
-
-.arrow:active {
-  transform: scale(0.95);
-}
-
-section {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: center;
   overflow-x: auto;
-  gap: 40px;
-  padding: 60px 20px;
+  overflow-y: hidden;
+  padding: 50px 12px 15px 12px;
+  border-radius: 20px;
+  flex: 1;
+  perspective: 1000px;
+  transition: background 0.5s ease, box-shadow 0.4s ease, border-color 0.5s ease;
+  box-sizing: border-box;
+  
+  /* Constrain height to fit within screen */
+  height: 480px;
+  max-height: calc(100vh - 300px);
+  
+  /* Visual box styling */
   position: relative;
-  width: 100%;
-  max-width: 100%;
+  
+  /* Smooth horizontal scroll snapping */
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
-section::before {
-  display: none !important;
+body.light-mode .timeline-container {
+  background: var(--light-bg-secondary);
+  box-shadow: 
+    0 15px 50px rgba(0, 113, 197, 0.2),
+    inset 0 2px 0 rgba(255, 255, 255, 0.8);
+  border: 2px solid rgba(0, 113, 197, 0.3);
 }
 
-section::-webkit-scrollbar {
+body.dark-mode .timeline-container {
+  background: var(--dark-bg-secondary);
+  box-shadow: 0 15px 50px rgba(0, 199, 253, 0.25);
+  border: 2px solid rgba(0, 199, 253, 0.4);
+}
+
+/* Container hover effect - enhanced */
+body.light-mode .timeline-container:hover {
+  box-shadow: 
+    0 20px 70px rgba(0, 113, 197, 0.3),
+    inset 0 2px 0 rgba(255, 255, 255, 0.8);
+  border-color: rgba(0, 113, 197, 0.5);
+}
+
+body.dark-mode .timeline-container:hover {
+  box-shadow: 0 20px 70px rgba(0, 199, 253, 0.35);
+  border-color: rgba(0, 199, 253, 0.6);
+}
+
+/* Individual timeline card - clean, modern design */
+.timeline-card {
+  min-width: 300px; /* Consistent card size */
+  max-width: 300px; /* Prevent expansion on hover */
+  flex-shrink: 0; /* Prevent cards from shrinking - enables horizontal scroll */
+  background: linear-gradient(135deg, #1e3a5f 0%, #0f2744 100%); /* Rich dark blue gradient */
+  border: 1px solid rgba(0, 149, 255, 0.3); /* Intel blue border */
+  border-left: 4px solid #0095ff; /* Bright Intel blue accent bar on left */
+  border-radius: 12px; /* Rounded corners */
+  padding: 8px 7px; /* Ultra-compact padding */
+  box-shadow: 0 4px 20px rgba(0, 113, 197, 0.2); /* Simplified single shadow for performance */
+  transition: 
+    transform 0.3s ease-out,
+    box-shadow 0.3s ease-out,
+    border-left-color 0.3s ease; /* Simplified transitions */
+  cursor: pointer; /* Indicate interactivity */
+  position: relative; /* For decorative elements */
+  overflow: hidden; /* Contain decorative elements */
+  
+  /* Scroll snap alignment */
+  scroll-snap-align: start; /* Snap to start of each card */
+  scroll-snap-stop: always; /* Force stop at each snap point */
+  
+  /* Performance hint for transforms */
+  will-change: transform;
+}
+
+/* Animated background glow effect - disabled for performance */
+.timeline-card::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(0, 149, 255, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none; /* Don't interfere with clicks */
+  opacity: 0;
+  transition: opacity 0.3s ease, width 0.3s ease, height 0.3s ease; /* Simplified transitions */
+}
+
+/* Badge hover effect - simplified for performance */
+.timeline-card:hover .card-badge {
+  background: linear-gradient(135deg, #0095ff 0%, #0071c5 100%); /* Lighter Intel blue on hover */
+  transform: scale(1.1); /* Simple scale only */
+  box-shadow: 0 4px 12px rgba(0, 149, 255, 0.4); /* Single shadow */
+}
+
+/* Card hover effect - optimized lift and shadow */
+.timeline-card:hover {
+  transform: translateY(-8px); /* Simple lift, no scale or rotate for performance */
+  box-shadow: 0 12px 40px rgba(0, 113, 197, 0.35); /* Single shadow instead of 4 layers */
+  border-left-color: #00c7fd; /* Brighter Intel blue accent on hover */
+}
+
+/* Show top accent on hover - removed shimmer for performance */
+.timeline-card:hover::before {
+  opacity: 1;
+}
+
+/* Subtle glow on hover - simplified */
+.timeline-card:hover::after {
+  width: 200px;
+  height: 200px;
+  opacity: 1;
+}
+
+/* Badge hover effect - simplified */
+.timeline-card:hover .card-badge {
+  background: linear-gradient(135deg, #0095ff 0%, #0071c5 100%); /* Brighter on hover */
+  transform: scale(1.05); /* Slight grow */
+}
+
+/* Decorative gradient overlay on card - appears on hover (shimmer removed for performance) */
+.timeline-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px; /* Thin top accent */
+  background: linear-gradient(90deg, #0071c5 0%, #0095ff 100%);
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.3s ease;
+}
+
+/* Card hover effect - simplified */
+.timeline-card:hover {
+  transform: translateY(-6px); /* Gentle lift */
+  box-shadow: 0 10px 30px rgba(0, 113, 197, 0.3); /* Simplified shadow */
+  border-left-color: #00c7fd; /* Brighter blue accent on hover */
+}
+
+/* Show top accent on hover */
+.timeline-card:hover::before {
+  opacity: 1;
+}
+
+/* Badge text at top of cards */
+.card-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  margin-bottom: 5px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Light mode badge styling */
+body.light-mode .card-badge {
+  background: linear-gradient(135deg, #0071c5 0%, #0095ff 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 113, 197, 0.25);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .card-badge:hover {
+  box-shadow: 0 6px 20px rgba(0, 113, 197, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Dark mode badge styling */
+body.dark-mode .card-badge {
+  background: linear-gradient(135deg, #0095ff 0%, #00c7fd 100%);
+  color: #0a0f1e;
+  box-shadow: 0 4px 16px rgba(0, 199, 253, 0.35);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  font-weight: 800;
+  letter-spacing: 1.3px;
+}
+
+body.dark-mode .card-badge:hover {
+  box-shadow: 0 8px 24px rgba(0, 199, 253, 0.5);
+  transform: translateY(-2px) scale(1.05);
+}
+
+/* Badge shimmer effect on page load */
+@keyframes badgeShimmer {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+/* Year heading in card */
+.timeline-card h2 {
+  font-size: 21px;
+  margin-bottom: 2px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  line-height: 1;
+  transition: 
+    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+    color 0.3s ease,
+    text-shadow 0.3s ease;
+  transform-origin: left center;
+}
+
+body.light-mode .timeline-card h2 {
+  color: #0071c5;
+  text-shadow: 0 2px 8px rgba(0, 113, 197, 0.2);
+}
+
+body.dark-mode .timeline-card h2 {
+  color: #00c7fd;
+  text-shadow: 0 0 20px rgba(0, 199, 253, 0.4);
+}
+
+/* Year hover effect */
+body.light-mode .timeline-card:hover h2 {
+  transform: scale(1.08) translateX(5px);
+  color: #0095ff;
+  text-shadow: 0 4px 15px rgba(0, 149, 255, 0.4);
+}
+
+body.dark-mode .timeline-card:hover h2 {
+  transform: scale(1.08) translateX(5px);
+  color: #0095ff;
+  text-shadow: 0 4px 20px rgba(0, 149, 255, 0.5); /* Single text-shadow for performance */
+}
+
+/* Title in card */
+.timeline-card h3 {
+  font-size: 15.5px;
+  margin-bottom: 3px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  line-height: 1.1;
+  transition: 
+    transform 0.3s ease,
+    color 0.3s ease;
+  transform-origin: left center;
+}
+
+body.light-mode .timeline-card h3 {
+  color: #1e3a5f;
+}
+
+body.dark-mode .timeline-card h3 {
+  color: #b3d4ff;
+}
+
+/* Title hover effect */
+body.light-mode .timeline-card:hover h3 {
+  transform: translateX(3px);
+  color: #0071c5;
+}
+
+body.dark-mode .timeline-card:hover h3 {
+  transform: translateX(3px);
+  color: #00c7fd;
+}
+
+/* Description text in card */
+.card-details {
+  font-size: 8px;
+  line-height: 1.3;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transition: 
+    max-height 0.5s ease,
+    opacity 0.5s ease,
+    visibility 0s 0.5s; /* Simplified transitions */
+  margin-top: 0;
+  word-wrap: break-word;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+body.light-mode .card-details {
+  color: #4a6fa5;
+}
+
+body.dark-mode .card-details {
+  color: #8ba8c4;
+}
+
+/* Show details on card hover - simplified reveal */
+.timeline-card:hover .card-details {
+  max-height: 250px; /* Enough height for content */
+  opacity: 1; /* Fully visible */
+  visibility: visible; /* Make visible */
+  margin-top: 15px; /* Add spacing when visible */
+  font-size: 13.5px; /* 10% smaller */
+  transition: 
+    max-height 0.5s ease,
+    opacity 0.5s ease,
+    margin-top 0.5s ease,
+    font-size 0.3s ease,
+    visibility 0s 0s; /* No delay for visibility appearing */
+}
+
+/* ====== DARK MODE OVERRIDES FOR CARDS ====== */
+
+/* Dark mode card base styles - Intel blue theme */
+body.dark-mode .timeline-card {
+  background: linear-gradient(135deg, #1a2332 0%, #0f1922 100%); /* Deep blue gradient */
+  border: 1px solid rgba(0, 199, 253, 0.3); /* Intel blue border */
+  border-left: 4px solid #00c7fd; /* Bright Intel blue accent bar */
+  box-shadow: 0 4px 20px rgba(0, 199, 253, 0.2); /* Simplified shadow */
+}
+
+/* Dark mode card top accent gradient */
+body.dark-mode .timeline-card::before {
+  background: linear-gradient(90deg, #0071c5 0%, #00c7fd 100%);
+}
+
+/* Dark mode card hover effect - simplified */
+body.dark-mode .timeline-card:hover {
+  box-shadow: 0 12px 40px rgba(0, 199, 253, 0.35); /* Single shadow */
+  border-left-color: #0095ff; /* Brighter Intel blue on hover */
+}
+
+/* Dark mode badge hover effect - simplified */
+body.dark-mode .timeline-card:hover .card-badge {
+  background: linear-gradient(135deg, #00c7fd 0%, #0095ff 100%); /* Intel blue gradient */
+  box-shadow: 0 4px 12px rgba(0, 199, 253, 0.4); /* Single shadow */
+}
+
+/* Hide scrollbar for timeline */
+/* Hide scrollbar - webkit browsers */
+.timeline-container::-webkit-scrollbar {
   display: none;
 }
 
-section {
+/* Hide scrollbar - Firefox and other browsers */
+.timeline-container {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
-section div {
-  width: 280px;
-  background-color: white;
-  padding: 24px;
-  border-radius: 20px;
-  box-shadow: 0 4px 12px rgba(0, 113, 197, 0.08), 0 0 16px 4px #cce6ff;
-  text-align: center;
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
-  transition: box-shadow 0.3s ease;
-  border: 1px solid #e0e0e0;
-  color: #333;
-}
-
-section div:hover {
-  box-shadow: 0 12px 28px rgba(0, 113, 197, 0.15), 0 0 24px 6px #cce6ff;
-  border-color: #0071c5;
-}
-
-.card-summary {
-  transition: opacity 0.3s ease;
-}
-
-.card-image {
-  width: 100%;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 15px;
-  margin-bottom: 15px;
-  display: block;
-}
-
-.card-details {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: max-height 0.3s ease, opacity 0.3s ease;
-}
-
-section div:hover .card-details {
-  max-height: 200px;
-  opacity: 1;
-}
-
-section div:hover .card-summary h3 {
-  opacity: 0.6;
-}
-
-section div::before {
-  display: none;
-}
-
-section div h2 {
-  margin: 0 0 8px 0;
-  font-size: 26px;
-  font-weight: 700;
+/* Navigation arrow buttons - positioned absolutely outside timeline */
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 113, 197, 0.4);
+  background: rgba(0, 113, 197, 0.1);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
   color: #0071c5;
-  letter-spacing: -0.3px;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  z-index: 20;
+  padding: 0;
+  min-width: 44px;
+  min-height: 44px;
 }
 
-section div h3 {
-  margin: 0 0 12px 0;
-  font-size: 15px;
-  font-weight: 600;
-  color: #333;
-  letter-spacing: 0.2px;
-  text-transform: uppercase;
+.nav-arrow-left {
+  left: 8px;
+}
+
+.nav-arrow-right {
+  right: 8px;
+}
+
+body.dark-mode .nav-arrow {
+  border-color: rgba(0, 199, 253, 0.4);
+  background: rgba(0, 199, 253, 0.1);
+  color: #00c7fd;
+}
+
+.nav-arrow:hover {
+  background: rgba(0, 113, 197, 0.2);
+  border-color: rgba(0, 113, 197, 0.6);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 0 20px rgba(0, 113, 197, 0.3);
+}
+
+body.dark-mode .nav-arrow:hover {
+  background: rgba(0, 199, 253, 0.2);
+  border-color: rgba(0, 199, 253, 0.6);
+  box-shadow: 0 0 20px rgba(0, 199, 253, 0.4);
+}
+
+.nav-arrow:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+/* Footer section - Intel branding and copyright */
+.page-footer {
+  text-align: center;
+  margin: 10px 12px 15px 12px;
+  padding: 20px 15px 15px;
+  background: linear-gradient(135deg, #1a2332 0%, #0f1922 100%);
+  border-radius: 16px;
+  box-shadow: 
+    0 -4px 20px rgba(0, 199, 253, 0.2),
+    inset 0 1px 0 rgba(0, 199, 253, 0.1);
+  width: calc(100% - 24px);
+  box-sizing: border-box;
+  position: relative;
+  border: 1px solid rgba(0, 199, 253, 0.2);
+}
+
+/* Decorative top accent on footer */
+.page-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px; /* Accent line width */
+  height: 4px; /* Accent line thickness */
+  background: linear-gradient(90deg, #0071c5 0%, #0095ff 50%, #00c7fd 100%); /* Intel blue gradient */
+  border-radius: 0 0 2px 2px; /* Rounded bottom */
+  box-shadow: 0 0 20px rgba(0, 199, 253, 0.6); /* Intel blue glow effect */
+}
+
+/* Intel Inside logo in footer */
+.intel-inside-logo {
+  width: 120px; /* Smaller than header logo */
+  height: auto; /* Maintain aspect ratio */
+  margin-bottom: 25px; /* Space below logo */
+  filter: drop-shadow(0 4px 12px rgba(0, 199, 253, 0.3)); /* Intel blue shadow */
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Logo hover effect */
+.intel-inside-logo:hover {
+  transform: translateY(-3px); /* Gentle lift */
+  filter: drop-shadow(0 8px 20px rgba(0, 199, 253, 0.5)); /* Enhanced Intel blue shadow */
+}
+
+/* Footer tagline text */
+.footer-text {
+  color: #00c7fd; /* Bright Intel blue */
+  font-size: 18px; /* Prominent size */
+  font-weight: 600; /* Semi-bold */
+  margin-bottom: 15px; /* Space below */
+  letter-spacing: 0.5px; /* Slightly wide */
+  text-shadow: 0 0 15px rgba(0, 199, 253, 0.4); /* Subtle Intel blue glow */
+}
+
+/* Footer copyright text */
+.footer-copyright {
+  color: #8ba8c4; /* Light blue-gray */
+  font-size: 14px; /* Smaller text */
+  font-weight: 400; /* Regular weight */
+  margin-top: 10px; /* Space above */
+}
+
+/* Responsive design for tablets and smaller screens */
+@media (max-width: 768px) {
+  /* Adjust body padding for mobile */
+  body {
+    padding: 20px 15px;
+  }
+  
+  /* Adjust header spacing */
+  .page-header {
+    margin-bottom: 40px;
+  }
+  
+  /* Smaller logo on mobile */
+  .intel-logo {
+    width: 140px; /* Smaller but still prominent */
+    margin-bottom: 20px;
+  }
+  
+  /* Adjust page title for mobile */
+  .page-title {
+    font-size: 36px; /* Smaller on mobile */
+    margin-bottom: 15px;
+  }
+  
+  /* Smaller subtitle on mobile */
+  .subtitle {
+    font-size: 16px; /* Slightly smaller */
+    padding: 0 10px; /* Add padding for better readability */
+  }
+  
+  /* Stack timeline cards vertically on small screens */
+  .timeline-container {
+    flex-direction: column; /* Vertical layout */
+    overflow-x: visible; /* Remove horizontal scroll */
+    padding: 30px 20px;
+  }
+  
+  /* Make cards full width on mobile */
+  .timeline-card {
+    min-width: 100%; /* Full width */
+    margin-bottom: 20px; /* Space between stacked cards */
+  }
+  
+  /* Always show details on mobile (no hover) */
+  .card-details {
+    max-height: 250px;
+    opacity: 1;
+    visibility: visible; /* Make visible on mobile */
+    margin-top: 15px;
+    transform: translateY(0); /* Reset transform */
+  }
+  
+  /* Adjust footer spacing for mobile */
+  .page-footer {
+    margin-top: 50px; /* Less spacing on mobile */
+    padding: 40px 15px 30px; /* Reduced padding */
+  }
+  
+  /* Smaller footer logo on mobile */
+  .intel-inside-logo {
+    width: 100px; /* Smaller size */
+  }
+  
+  /* Smaller footer text on mobile */
+  .footer-text {
+    font-size: 16px; /* Slightly smaller */
+  }
+  
+  /* Smaller copyright text */
+  .footer-copyright {
+    font-size: 12px; /* Smaller size */
+  }
+}
+
+/* ==========================================
+   Navigation Bar
+   ========================================== */
+
+.navbar {
+  background-color: var(--nav-bg);
+  border-bottom: 2px solid var(--nav-border);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
 
-section div p {
-  margin: 0;
-  font-size: 13px;
-  color: #555;
-  line-height: 1.5;
-  font-weight: 400;
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
 }
 
-.scroll-hint {
+/* Intel Logo */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.intel-logo {
+  height: 50px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.intel-logo:hover {
+  transform: scale(1.05);
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-links a:hover {
+  color: #0071c5;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #0071c5;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  background-color: transparent;
+  border: 2px solid #0071c5;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  color: var(--text-primary);
+}
+
+.theme-toggle:hover {
+  background-color: #0071c5;
+  transform: rotate(20deg);
+  box-shadow: 0 0 15px rgba(0, 113, 197, 0.4);
+}
+
+/* ==========================================
+   Header Section
+   ========================================== */
+
+.header-section {
+  background-color: var(--bg-secondary);
+  padding: 3rem 2rem;
+}
+
+.header-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.header-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease;
+}
+
+.header-image img:hover {
+  transform: scale(1.02);
+}
+
+.header-content {
+  padding: 2rem;
+}
+
+.header-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #0071c5;
+  font-weight: 700;
+}
+
+.header-text {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+/* ==========================================
+   Timeline Section
+   ========================================== */
+
+.timeline-section {
+  padding: 4rem 2rem;
+  background-color: var(--bg-primary);
+}
+
+.timeline-heading {
   text-align: center;
-  color: #666;
-  font-size: 14px;
-  margin: 20px 0;
-  font-weight: 400;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #0071c5;
+  font-weight: 700;
 }
 
-@media (max-width: 767px) {
-  .arrow {
-    width: 45px;
-    height: 45px;
-    font-size: 20px;
+/* Media query styles - no override needed for wrapper */
+  gap: 2rem;
+  padding-bottom: 1rem;
+  min-width: min-content;
+  /* Scroll snapping for smooth horizontal scrolling */
+  scroll-snap-type: x mandatory;
+}
+
+/* ==========================================
+   Timeline Cards
+   ========================================== */
+
+.timeline-card {
+  min-width: 280px;
+  height: 350px;
+  background-color: var(--card-bg);
+  border: 2px solid var(--card-border);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  /* Scroll snapping */
+  scroll-snap-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Card Image */
+.card-image {
+  width: 100%;
+  height: 60%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.timeline-card:hover .card-image {
+  transform: scale(1.08);
+}
+
+/* Card Title */
+.card-title {
+  padding: 1.5rem 1rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #0071c5;
+  transition: all 0.4s ease;
+}
+
+/* Card Overlay (Hover Effect) */
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--overlay-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border-left: 4px solid #0071c5;
+}
+
+.timeline-card:hover .card-overlay {
+  opacity: 1;
+}
+
+.overlay-text {
+  color: var(--overlay-text);
+  font-size: 1rem;
+  text-align: left;
+  border: 2px solid #0071c5;
+  padding: 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+/* Hover Effects - Scale and Glow */
+.timeline-card:hover {
+  transform: scale(1.05) translateY(-10px);
+  box-shadow: 0 15px 40px var(--glow-color), 
+              0 0 30px rgba(0, 113, 197, 0.4);
+  border-color: #0071c5;
+}
+
+/* ==========================================
+   Footer
+   ========================================== */
+
+.footer {
+  background-color: var(--bg-secondary);
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-secondary);
+  border-top: 2px solid var(--card-border);
+}
+
+/* ==========================================
+   Responsive Design
+   ========================================== */
+
+/* Tablets (768px and below) */
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 0 1rem;
   }
-  .timeline-container {
-    gap: 10px;
-    padding: 0 10px;
+
+  .nav-links {
+    gap: 1rem;
+    font-size: 0.9rem;
   }
-  section {
+
+  .intel-logo {
+    height: 40px;
+  }
+
+  .header-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .header-title {
+    font-size: 2rem;
+  }
+
+  .header-text {
+    font-size: 1rem;
+  }
+
+  .timeline-heading {
+    font-size: 2rem;
+  }
+
+  .timeline-card {
+    min-width: 260px;
+    height: 330px;
+  }
+
+  .card-title {
+    padding: 1rem;
+    font-size: 1.5rem;
+  }
+}
+
+/* Mobile (480px and below) */
+@media (max-width: 480px) {
+  /* Navigation Bar */
+  .nav-container {
     flex-direction: column;
-    align-items: center;
-    overflow-x: hidden;
-    overflow-y: auto;
-    gap: 30px;
-    padding: 40px 0 60px 0;
-    max-height: 70vh;
+    gap: 1rem;
+    padding: 1rem;
   }
-  section div {
-    width: 90%;
-    min-width: 220px;
-    max-width: 350px;
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
   }
+
+  .nav-links a {
+    font-size: 0.85rem;
+  }
+
+  /* Header Section */
+  .header-section {
+    padding: 2rem 1rem;
+  }
+
+  .header-container {
+    gap: 1.5rem;
+  }
+
+  .header-title {
+    font-size: 1.5rem;
+  }
+
+  .header-text {
+    font-size: 0.9rem;
+  }
+
+  /* Timeline Section */
+  .timeline-section {
+    padding: 2rem 1rem;
+  }
+
+  .timeline-heading {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .timeline-wrapper {
+    padding: 1rem 0;
+  }
+
+  .timeline-container {
+    gap: 1rem;
+  }
+
+  /* Cards Stack Vertically */
+  @supports (display: grid) {
+    .timeline-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      overflow-x: visible;
+      min-width: auto;
+      max-width: 100%;
+    }
+  }
+
+  .timeline-card {
+    min-width: 100%;
+    width: 100%;
+    height: auto;
+    scroll-snap-align: none;
+  }
+
+  .card-image {
+    height: 200px;
+  }
+
+  .card-title {
+    padding: 1rem;
+    font-size: 1.3rem;
+  }
+
+  .overlay-text {
+    font-size: 0.9rem;
+    padding: 1rem;
+  }
+
+  .timeline-card:hover {
+    transform: scale(1.02) translateY(-5px);
+  }
+}
+
+/* ==========================================
+   Smooth Animations and Transitions
+   ========================================== */
+
+/* Add smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Smooth transition for theme changes */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
