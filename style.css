@@ -1,3 +1,14 @@
+/* Visually hidden class for accessibility (screen readers only) */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
 /* Subscription Form Styles */
 .subscribe-form {
   margin: 2em auto 0 auto;
@@ -14,13 +25,13 @@
 .subscribe-form h3 {
   margin-bottom: 0.5em;
   font-size: 1.3em;
-  color: #0071c5;
+  color: #004080; /* Darker blue for better contrast */
 }
 
 .subscribe-form p {
   font-size: 1em;
   margin-bottom: 1em;
-  color: #333;
+  color: #222; /* Slightly darker for better contrast */
 }
 
 .subscribe-input {
@@ -34,7 +45,7 @@
 
 .subscribe-btn {
   padding: 0.5em 1.5em;
-  background: #0071c5;
+  background: #005a99; /* Darker blue for better contrast */
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -44,7 +55,7 @@
 }
 
 .subscribe-btn:hover {
-  background: #005a99;
+  background: #003d66;
 }
 .timeline-container {
   scroll-behavior: smooth;
