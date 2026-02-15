@@ -87,126 +87,115 @@
   </header>
   
   <!-- Timeline container using Bootstrap grid -->
-  <div class="timeline-wrapper container-fluid py-3">
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 timeline-container">
-      <!-- Timeline card 1 -->
-      <div class="col">
-        <div class="timeline-card h-100">
-          <div class="card-badge">Innovation</div>
-          <h2><i class="bi bi-lightbulb"></i> 1968</h2>
-          <h3>Intel Founded</h3>
-          <div class="intel-founders">
-            <img class="founders-photo" src="https://siliconcowboy.wordpress.com/wp-content/uploads/2012/07/moore-noyce.jpg" alt="Gordon Moore and Robert Noyce, founders of Intel">
-          </div>
-          <p class="card-details">Robert Noyce and Gordon Moore founded Intel Corporation, beginning a journey of innovation.</p>
-          <a href="https://en.wikipedia.org/wiki/Intel" target="_blank" class="btn btn-primary learn-more-btn mt-auto" aria-label="Learn more about Intel's founding"><i class="bi bi-info-circle"></i> Learn More</a>
-        </div>
+  <!-- Timeline container - will scroll horizontally on large screens -->
+  <div class="timeline-wrapper">
+    <div class="timeline-container">
+    
+    <!-- Timeline card 1 -->
+    <div class="timeline-card">
+      <div class="card-badge">Innovation</div>
+      <h2>1968</h2>
+      <h3>Intel Founded</h3>
+      <!-- HTML -->
+      <div class="intel-founders">
+           <img class="founders-photo" src="https://siliconcowboy.wordpress.com/wp-content/uploads/2012/07/moore-noyce.jpg"
+             alt="Gordon Moore and Robert Noyce, founders of Intel">
       </div>
-      <!-- Timeline card 2 -->
-      <div class="col">
-        <div class="timeline-card h-100">
-          <div class="card-badge">Breakthrough</div>
-          <h2><i class="bi bi-cpu"></i> 1971</h2>
-          <h3>First Microprocessor</h3>
-          <div class="intel-founders">
-            <img src="https://cdn.arstechnica.net/wp-content/uploads/2011/11/intel-4004-4ec2d7b-intro.jpg" alt="Intel 4004 microprocessor">
-          </div>
-          <p class="card-details">Intel introduced the 4004, the world's first commercial microprocessor.</p>
-          <a href="https://en.wikipedia.org/wiki/Intel_4004" target="_blank" class="btn btn-primary learn-more-btn mt-auto" aria-label="Learn more about the Intel 4004"><i class="bi bi-info-circle"></i> Learn More</a>
-        </div>
-      </div>
-      <!-- Timeline card 3 -->
-      <div class="col">
-        <div class="timeline-card h-100">
-          <div class="card-badge">Architecture</div>
-          <h2><i class="bi bi-diagram-3"></i> 1978</h2>
-          <h3>8086 Processor</h3>
-          <div class="intel-founders">
-            <img src="https://miro.medium.com/v2/resize:fit:1200/1*nWe1RXvx0OFJFAGvTuRBuA.jpeg" alt="Gordon Moore and Robert Noyce, founders of Intel">
-          </div>
-          <p class="card-details">Launch of the 8086 processor, establishing the x86 architecture.</p>
-          <a href="https://en.wikipedia.org/wiki/Intel_8086" target="_blank" class="btn btn-primary learn-more-btn mt-auto" aria-label="Learn more about the 8086 processor"><i class="bi bi-info-circle"></i> Learn More</a>
-        </div>
-      </div>
-      <!-- Timeline card 4 -->
-      <div class="col">
-        <div class="timeline-card h-100">
-          <div class="card-badge">Evolution</div>
-          <h2><i class="bi bi-arrow-repeat"></i> 1985</h2>
-          <h3>386 Processor</h3>
-          <div class="intel-founders">
-            <img src="https://www.redhotcyber.com/wp-content/uploads/2025/10/image-253.jpg" alt="Intel 386 processor image">
-          </div>
-          <p class="card-details">Intel 386 processor introduced 32-bit architecture to personal computers.</p>
-          <a href="https://en.wikipedia.org/wiki/Intel_80386" target="_blank" class="btn btn-primary learn-more-btn mt-auto" aria-label="Learn more about the 386 processor"><i class="bi bi-info-circle"></i> Learn More</a>
-        </div>
-      </div>
-      <!-- Timeline card 5 -->
-      <div class="col">
-        <div class="timeline-card h-100">
-          <div class="card-badge">Revolution</div>
-          <h2><i class="bi bi-lightning"></i> 1993</h2>
-          <h3>Pentium Era</h3>
-          <div class="intel-founders">
-            <img src="https://cdn.arstechnica.net/wp-content/uploads/2016/02/DSC03166-1.jpg" alt="Pentium processor image">
-          </div>
-          <p class="card-details">The Pentium processor revolutionized computing performance.</p>
-          <a href="https://en.wikipedia.org/wiki/Pentium" target="_blank" class="btn btn-primary learn-more-btn mt-auto" aria-label="Learn more about the Pentium era"><i class="bi bi-info-circle"></i> Learn More</a>
-        </div>
-      </div>
-      <!-- Timeline card 6 -->
-      <div class="col">
-        <div class="timeline-card h-100">
-          <div class="card-badge">Multi-Core</div>
-          <h2><i class="bi bi-columns-gap"></i> 2006</h2>
-          <h3>Core Processors</h3>
-          <div class="intel-founders">
-            <img src="https://v.wpimg.pl/YTU1NmU1djU0Uzheekp7IHcLbAQ8E3V2IBN0T3oAa2xlSWELPF08JjBBIUMyQywkNEY-QyVddjUlWGEbZB49PSZBIgwsHjw5N1QqQmIBa2xtUHsJeABuZmUcellkA3Q2NwJ5QG1VbDVgBHgIYAhsYXdM" alt="Intel Core processors image">
-          </div>
-          <p class="card-details">Intel Core processors debut with multi-core technology.</p>
-          <a href="https://en.wikipedia.org/wiki/Intel_Core" target="_blank" class="btn btn-primary learn-more-btn mt-auto" aria-label="Learn more about Intel Core processors"><i class="bi bi-info-circle"></i> Learn More</a>
-        </div>
-      </div>
-      <!-- Timeline card 7 -->
-      <div class="col">
-        <div class="timeline-card h-100">
-          <div class="card-badge">Efficiency</div>
-          <h2><i class="bi bi-battery-charging"></i> 2015</h2>
-          <h3>Skylake Architecture</h3>
-          <div class="intel-founders">
-            <img src="http://www.jagatreview.com/wp-content/uploads/2016/05/Intel-Skylake-500x281.jpg" alt="Intel Skylake architecture image">
-          </div>
-          <p class="card-details">Skylake architecture advanced computing efficiency.</p>
-          <a href="https://en.wikipedia.org/wiki/Skylake_(microarchitecture)" target="_blank" class="btn btn-primary learn-more-btn mt-auto" aria-label="Learn more about Skylake architecture"><i class="bi bi-info-circle"></i> Learn More</a>
-        </div>
-      </div>
-      <!-- Timeline card 8 -->
-      <div class="col">
-        <div class="timeline-card h-100">
-          <div class="card-badge">Innovation</div>
-          <h2><i class="bi bi-gear"></i> 2021</h2>
-          <h3>Process Innovation</h3>
-          <div class="intel-founders">
-            <img src="https://media.overclock3d.net/2023/09/Intel-4-Ireland.jpg" alt="Intel process innovation image">
-          </div>
-          <p class="card-details">Intel commits to next-generation manufacturing technology.</p>
-          <a href="https://en.wikipedia.org/wiki/Intel" target="_blank" class="btn btn-primary learn-more-btn mt-auto" aria-label="Learn more about Intel process innovation"><i class="bi bi-info-circle"></i> Learn More</a>
-        </div>
-      </div>
-      <!-- Timeline card 9 -->
-      <div class="col">
-        <div class="timeline-card h-100">
-          <div class="card-badge">Future</div>
-          <h2><i class="bi bi-globe"></i> 2024</h2>
-          <h3>Future Forward</h3>
-          <div class="intel-founders">
-            <img src="https://www.hcltech.com/sites/default/files/trends-insights/banner/2024-02/Semiconductor_industry_ERS_700x357.jpg" alt="Semiconductor industry future image">
-          </div>
-          <p class="card-details">Intel shapes the future with advanced semiconductor solutions.</p>
-          <a href="https://en.wikipedia.org/wiki/Semiconductor_industry" target="_blank" class="btn btn-primary learn-more-btn mt-auto" aria-label="Learn more about the future of semiconductors"><i class="bi bi-info-circle"></i> Learn More</a>
-        </div>
-      </div>
+      <p class="card-details">Robert Noyce and Gordon Moore founded Intel Corporation, beginning a journey of innovation.</p>
     </div>
+    
+    <!-- Timeline card 2 -->
+    <div class="timeline-card">
+      <div class="card-badge">Breakthrough</div>
+      <h2>1971</h2>
+      <h3>First Microprocessor</h3>
+      <div class="intel-founders">
+        <img src="https://cdn.arstechnica.net/wp-content/uploads/2011/11/intel-4004-4ec2d7b-intro.jpg"
+             alt="Intel 4004 microprocessor">
+      </div>
+      <p class="card-details">Intel introduced the 4004, the world's first commercial microprocessor.</p>
+    </div>
+    
+    <!-- Timeline card 3 -->
+    <div class="timeline-card">
+      <div class="card-badge">Architecture</div>
+      <h2>1978</h2>
+      <h3>8086 Processor</h3>
+      <div class="intel-founders">
+        <img src="https://miro.medium.com/v2/resize:fit:1200/1*nWe1RXvx0OFJFAGvTuRBuA.jpeg"
+             alt="Gordon Moore and Robert Noyce, founders of Intel">
+      </div>
+      <p class="card-details">Launch of the 8086 processor, establishing the x86 architecture.</p>
+    </div>
+    
+    <!-- Timeline card 4 -->
+    <div class="timeline-card">
+      <div class="card-badge">Evolution</div>
+      <h2>1985</h2>
+      <h3>386 Processor</h3>
+      <div class="intel-founders">
+        <img src="https://www.redhotcyber.com/wp-content/uploads/2025/10/image-253.jpg" alt="Intel 386 processor image">
+      </div>
+      <p class="card-details">Intel 386 processor introduced 32-bit architecture to personal computers.</p>
+    </div>
+    
+    <!-- Timeline card 5 -->
+    <div class="timeline-card">
+      <div class="card-badge">Revolution</div>
+      <h2>1993</h2>
+      <h3>Pentium Era</h3>
+      <div class="intel-founders">
+        <img src="https://cdn.arstechnica.net/wp-content/uploads/2016/02/DSC03166-1.jpg" alt="Pentium processor image">
+      </div>
+      <p class="card-details">The Pentium processor revolutionized computing performance.</p>
+    </div>
+    
+    <!-- Timeline card 6 -->
+    <div class="timeline-card">
+      <div class="card-badge">Multi-Core</div>
+      <h2>2006</h2>
+      <h3>Core Processors</h3>
+      <div class="intel-founders">
+        <img src="https://v.wpimg.pl/YTU1NmU1djU0Uzheekp7IHcLbAQ8E3V2IBN0T3oAa2xlSWELPF08JjBBIUMyQywkNEY-QyVddjUlWGEbZB49PSZBIgwsHjw5N1QqQmIBa2xtUHsJeABuZmUcellkA3Q2NwJ5QG1VbDVgBHgIYAhsYXdM" alt="Intel Core processors image">
+      </div>
+      <p class="card-details">Intel Core processors debut with multi-core technology.</p>
+    </div>
+    
+    <!-- Timeline card 7 -->
+    <div class="timeline-card">
+      <div class="card-badge">Efficiency</div>
+      <h2>2015</h2>
+      <h3>Skylake Architecture</h3>
+      <div class="intel-founders">
+        <img src="http://www.jagatreview.com/wp-content/uploads/2016/05/Intel-Skylake-500x281.jpg" alt="Intel Skylake architecture image">
+      </div>
+      <p class="card-details">Skylake architecture advanced computing efficiency.</p>
+    </div>
+    
+    <!-- Timeline card 8 -->
+    <div class="timeline-card">
+      <div class="card-badge">Innovation</div>
+      <h2>2021</h2>
+      <h3>Process Innovation</h3>
+      <div class="intel-founders">
+        <img src="https://media.overclock3d.net/2023/09/Intel-4-Ireland.jpg" alt="Intel process innovation image">
+      </div>
+      <p class="card-details">Intel commits to next-generation manufacturing technology.</p>
+    </div>
+    
+    <!-- Timeline card 9 -->
+    <div class="timeline-card">
+      <div class="card-badge">Future</div>
+      <h2>2024</h2>
+      <h3>Future Forward</h3>
+      <div class="intel-founders">
+        <img src="https://www.hcltech.com/sites/default/files/trends-insights/banner/2024-02/Semiconductor_industry_ERS_700x357.jpg" alt="Semiconductor industry future image">
+      </div>
+      <p class="card-details">Intel shapes the future with advanced semiconductor solutions.</p>
+    </div>
+    
+    </div>
+    
     <!-- Navigation arrows positioned outside the timeline -->
     <button class="nav-arrow nav-arrow-left" id="scrollLeft" aria-label="Scroll left">❮</button>
     <button class="nav-arrow nav-arrow-right" id="scrollRight" aria-label="Scroll right">❯</button>
