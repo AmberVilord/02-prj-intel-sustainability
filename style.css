@@ -677,8 +677,8 @@ body.dark-mode .hamburger-line {
 }
 
 body.light-mode .hamburger-menu:hover .hamburger-line {
-  background: #0095ff;
-  box-shadow: 0 2px 8px rgba(0, 149, 255, 0.5);
+  background: #e6f0ff;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.7);
 }
 
 body.dark-mode .hamburger-menu:hover .hamburger-line {
