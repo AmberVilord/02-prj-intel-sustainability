@@ -57,6 +57,10 @@
   </nav>
   
   <!-- Theme toggle button -->
+  <!-- RTL toggle button, 30px left of theme toggle -->
+  <button class="rtl-toggle" id="rtlToggle" aria-label="Toggle right-to-left mode">
+    <span class="bi bi-layout-text-sidebar-reverse"></span>
+  </button>
   <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
     <span class="sun-icon">☼</span>
     <span class="moon-icon">☽</span>
@@ -263,6 +267,18 @@
   
   <!-- Theme toggle script -->
   <script>
+            // RTL toggle functionality
+            const rtlToggle = document.getElementById('rtlToggle');
+            rtlToggle.addEventListener('click', function() {
+              const html = document.documentElement;
+              if (html.getAttribute('dir') === 'rtl') {
+                html.setAttribute('lang', 'en');
+                html.setAttribute('dir', 'ltr');
+              } else {
+                html.setAttribute('lang', 'ar');
+                html.setAttribute('dir', 'rtl');
+              }
+            });
         // Detect language changes and apply RTL mode for Arabic
         const observer = new MutationObserver(function(mutations) {
           mutations.forEach(function(mutation) {
