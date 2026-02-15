@@ -263,6 +263,20 @@
   
   <!-- Theme toggle script -->
   <script>
+        // Detect language changes and apply RTL mode for Arabic
+        const observer = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.attributeName === 'lang') {
+              const lang = document.documentElement.getAttribute('lang');
+              if (lang && lang.toLowerCase().startsWith('ar')) {
+                document.documentElement.setAttribute('dir', 'rtl');
+              } else {
+                document.documentElement.setAttribute('dir', 'ltr');
+              }
+            }
+          });
+        });
+        observer.observe(document.documentElement, { attributes: true });
     const themeToggle = document.getElementById('themeToggle');
     const body = document.body;
     
