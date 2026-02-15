@@ -1,3 +1,25 @@
+/* Align h1 and h2 with right edge of image in timeline cards on RTL */
+html[dir="rtl"] .timeline-card h1 {
+  text-align: right;
+  margin-right: 50px;
+  margin-left: 0;
+}
+html[dir="rtl"] .timeline-card h2 {
+  text-align: right;
+  margin-right: 20px;
+  margin-left: 0;
+}
+}
+/* Only affect h2 (dates) inside timeline cards in RTL mode on hover */
+html[dir="rtl"] .timeline-card h2 {
+  max-width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+html[dir="rtl"] .timeline-card:hover h2 {
+  transform: translateX(-30px);
+  transition: transform 0.3s;
+}
 /* RTL toggle container at top right */
 .rtl-toggle-container {
   position: fixed;
