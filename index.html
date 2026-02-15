@@ -211,7 +211,7 @@
   <div class="content-box">
     <h2 class="content-heading"><i class="bi bi-tree"></i> Innovation Built for Tomorrow</h2>
     <div class="content-text">
-      <div class="content-text"></div>
+      <!-- Removed extra image under carousel as requested -->
       <p>Intel has long recognized that technological progress must be balanced with environmental responsibility. As the company's products became more powerful and widely used, Intel expanded its focus beyond performance alone, integrating sustainability into the way technology is designed, manufactured, and delivered worldwide.</p>
       
       <p>Over time, Intel invested heavily in reducing its environmental footprint by improving energy efficiency, increasing the use of renewable energy, and conserving water across its global operations. These efforts helped lower emissions while supporting the growing demand for high-performance computing and data-driven innovation.</p>
@@ -219,6 +219,45 @@
       <p>As sustainability goals evolved, Intel extended its efforts beyond environmental impact to include social responsibility and ethical business practices. The company strengthened supply chain standards, promoted responsible sourcing, and supported education and community initiatives that encourage innovation and economic opportunity.</p>
       
       <p>Today, Intel continues to advance sustainability through circular economy principles, focusing on reducing waste, reusing materials, and designing products with longevity in mind. By aligning technological advancement with long-term environmental and social goals, Intel aims to help build a more resilient and sustainable future for the global technology ecosystem.</p>
+
+      <!-- Carousel with custom white arrows on the sides -->
+      <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
+        <!-- Left arrow -->
+        <button id="customCarouselPrev" aria-label="Previous" style="background: none; border: none; font-size: 2rem; color: white; cursor: pointer;">
+          &#8592;
+        </button>
+        <div id="sustainabilityCarousel" class="carousel slide" data-bs-ride="carousel" style="max-width:360px; margin:auto;">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#sustainabilityCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#sustainabilityCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#sustainabilityCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="https://ai2-s2-public.s3.amazonaws.com/figures/2017-08-08/0112916ec373b3de8abe0169f7509f2ce1d6c5f1/3-Figure1-1.png" class="d-block w-100" alt="Sustainability chart figure from AI2">
+            </div>
+            <div class="carousel-item">
+              <img src="https://informationpack.de/site/assets/files/1637/chart_intel_sustainable_value_chain.1724x0-is.jpg" class="d-block w-100" alt="Intel sustainable value chain chart">
+            </div>
+            <div class="carousel-item">
+              <img src="https://www.storagereview.com/wp-content/uploads/2023/01/StorageReview-Intel-Sapphire-Rapids-10.jpg" class="d-block w-100" alt="Intel Sapphire Rapids chip image">
+            </div>
+          </div>
+        </div>
+        <!-- Right arrow -->
+        <button id="customCarouselNext" aria-label="Next" style="background: none; border: none; font-size: 2rem; color: white; cursor: pointer;">
+          &#8594;
+        </button>
+      </div>
+          <style>
+            /* Make carousel arrows dark blue */
+            .custom-carousel-arrow .carousel-control-prev-icon,
+            .custom-carousel-arrow .carousel-control-next-icon {
+              filter: invert(18%) sepia(98%) saturate(7476%) hue-rotate(210deg) brightness(90%) contrast(120%);
+            }
+          </style>
+        <!-- Bootstrap JS Bundle (for Carousel functionality) -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
       <!-- Subscription Form Start -->
       <form class="subscribe-form">
         <h3 id="subscribe-heading">Subscribe for Updates</h3>
@@ -269,6 +308,17 @@
   
   <!-- Theme toggle script -->
   <script>
+                // Custom carousel arrow functionality
+                document.getElementById('customCarouselPrev').onclick = function() {
+                  var carousel = document.getElementById('sustainabilityCarousel');
+                  var bsCarousel = bootstrap.Carousel.getOrCreateInstance(carousel);
+                  bsCarousel.prev();
+                };
+                document.getElementById('customCarouselNext').onclick = function() {
+                  var carousel = document.getElementById('sustainabilityCarousel');
+                  var bsCarousel = bootstrap.Carousel.getOrCreateInstance(carousel);
+                  bsCarousel.next();
+                };
             // RTL toggle functionality
             const rtlToggle = document.getElementById('rtlToggle');
             rtlToggle.addEventListener('click', function() {
