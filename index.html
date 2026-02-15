@@ -89,11 +89,7 @@
     <div class="banner-instructions">
       <span class="banner-instructions-large">Scroll to explore; Hover to learn more.</span>
       <span class="banner-instructions-small">Drag to explore; Click to learn more.</span>
-      <div class="d-flex justify-content-center mt-3">
-        <button class="btn btn-primary btn-sm learn-more-btn d-flex align-items-center">
-          <i class="bi bi-arrow-right-circle-fill me-1" style="font-size:1rem;"></i> Learn More
-        </button>
-      </div>
+      <!-- Removed Learn More button from heading area as requested -->
     </div>
   </header>
   
@@ -225,6 +221,15 @@
       border-radius: 1.5rem;
       font-weight: 600;
       letter-spacing: 0.5px;
+      transition: none !important;
+      box-shadow: none !important;
+      transform: none !important;
+    }
+    .learn-more-btn:hover, .learn-more-btn:focus {
+      box-shadow: none !important;
+      transform: none !important;
+      background-color: #0d6efd;
+      color: #fff;
     }
     </style>
     
